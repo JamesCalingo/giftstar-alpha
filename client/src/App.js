@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from "./components/Navbar"
 import './App.css';
+import Welcome from "./pages/Welcome"
 
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
     <div className="App">
      <div>
       <Navbar />
+      <Welcome />
      </div>
     </div>
   );
