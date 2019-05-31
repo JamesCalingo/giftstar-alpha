@@ -8,26 +8,15 @@ function Navbar () {
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+    <ul class="navbar-nav justify-content-end">
+     
+      <li class="nav-item">
+        <a class="nav-link" href="#">Sign Up</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Create new List</a>
+        <a class="nav-link" href="#">Login</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">View my Lists</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          More
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">View Account</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
+      
     </ul>
   </div>
 </nav>
