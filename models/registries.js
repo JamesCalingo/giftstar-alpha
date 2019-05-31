@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var Registries = sequelize.define("Registries", {
+  var Registries = sequelize.define("registries", {
     registry: {
       type: DataTypes.STRING,
       allowNull: false,
