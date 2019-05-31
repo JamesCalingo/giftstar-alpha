@@ -2,6 +2,9 @@ import React from 'react';
 import Navbar from "./components/Navbar"
 import './App.css';
 import Welcome from "./pages/Welcome"
+import SignUp from "./pages/SignUp"
+import Login from "./components/Login"
+import CreateList from "./pages/CreateList"
 
 
 function App() {
@@ -10,6 +13,9 @@ function App() {
      <div>
       <Navbar />
       <Welcome />
+      <SignUp />
+      <Login />
+      <CreateList />
      </div>
     </div>
   );
