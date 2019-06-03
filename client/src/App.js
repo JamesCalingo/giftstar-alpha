@@ -5,6 +5,8 @@ import Welcome from "./pages/Welcome"
 import SignUp from "./pages/SignUp"
 import Login from "./components/Login"
 import CreateList from "./pages/CreateList"
+import RegistrySearch from "./pages/RegistrySearch"
+
 
 
 function App() {
@@ -16,6 +18,7 @@ function App() {
       <SignUp />
       <Login />
       <CreateList />
+      <RegistrySearch />
      </div>
     </div>
   );
