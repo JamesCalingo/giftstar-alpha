@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS registry;
+DROP DATABASE IF EXISTS giftsinthegazebo;
 
-CREATE DATABASE registry;
+CREATE DATABASE giftsinthegazebo;
 
-USE registry;
+USE giftsinthegazebo;
 

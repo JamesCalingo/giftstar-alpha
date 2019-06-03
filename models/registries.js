@@ -21,6 +21,7 @@ module.exports = function(sequelize, DataTypes) {
 
 Registries.associate = function(models) {
   Registries.belongsTo(models.users);
+  Registries.hasMany(models.products)
 }
   return Registries;
  };

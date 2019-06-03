@@ -6,7 +6,7 @@ import SignUp from "./pages/SignUp"
 import Login from "./components/Login"
 import CreateList from "./pages/CreateList"
 import RegistrySearch from "./pages/RegistrySearch"
-
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 
 function App() {
