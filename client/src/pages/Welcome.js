@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from 'react-router-dom';
 
 function Welcome() {
   return (
@@ -12,8 +13,8 @@ function Welcome() {
         <div className="card text-center">
           <div className="card-body">
             <h2>How can we help you today?</h2>
-            <button className="btn btn-primary mx-2">Create Registry</button>
-            <button className="btn btn-success mx-2">Find/View Registry</button>
+            <NavLink to="/CreateList" className="btn btn-primary">Create Registry</NavLink>
+            <NavLink to="/RegistrySearch" className="btn btn-success">Find/View Registry</NavLink>
           </div>
         </div>
         </div>

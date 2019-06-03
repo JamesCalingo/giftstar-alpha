@@ -2,6 +2,7 @@ import React from "react";
 
 function CreateList() {
   return(
+    <React.Fragment>
     <div>
       <h1 className="text-center">Create a new List/Registry!</h1>
     <div className="container">
@@ -32,6 +33,7 @@ function CreateList() {
     </div>
     </div>
     </div>
+    </React.Fragment>
   )
 }
 
