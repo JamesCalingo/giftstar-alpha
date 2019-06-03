@@ -7,13 +7,6 @@ module.exports = function(sequelize, DataTypes) {
         len: [1]
       }
     },
-    price: {
-      type: DataTypes.DECIMAL,
-      allowNull: false,
-      validate: {
-        len: [1]
-      }
-    },
     purchased: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
