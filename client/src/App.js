@@ -8,7 +8,6 @@ import Login from "./components/Login"
 import CreateList from "./pages/CreateList"
 import RegistrySearch from "./pages/RegistrySearch"
 
-
 function App() {
   return (
      <Router>
