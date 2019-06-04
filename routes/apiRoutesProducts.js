@@ -17,7 +17,7 @@ module.exports = function(app) {
 
   app.get("/api/products",withAuth, function(req, res) {
     req.body.registryId = req.id;
-    db.Products.findAll({ where: {
+    db.products.findAll({ where: {
       registryId: req.id
     }}).then(function(dbProducts) {
       res.json(dbProducts);
@@ -28,7 +28,7 @@ module.exports = function(app) {
     // POST route for saving a new product
     app.post("/api/products",withAuth, function(req, res) {
       req.body.registryId = req.id;
-      db.Products.create(req.body).then(function(dbProducts) {
+      db.products.create(req.body).then(function(dbProducts) {
         res.json(dbProducts);
       });
     });

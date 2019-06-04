@@ -20,7 +20,7 @@ class SignUp extends React.Component {
     });
   };
 
-  handleUserCreate = event =>{
+  handleUserCreate = event => {
     event.preventDefault();
     alert(`Hello ${this.state.firstName} ${this.state.lastName}! a confirmation email will be sent to ${this.state.email}.`)
   }
@@ -29,15 +29,17 @@ class SignUp extends React.Component {
     return (
       <div>
         <div className="header text-center mb-3">
-          <h1>Sign Up Here!</h1>
-          You've made a great choice. By signing up for our service, you'll be able to create your own custom gift lists and registries for all of your important moments in life! Weddings, Baby Showers, Birthdays, you name it - we'll help you make it happen! <br></br>
-          All we need is some info from you. Don't worry, we won't give it to anyone you don't trust (probably...)
+          <div className="container">
+            <h1>Sign Up Here!</h1>
+            <p className="signUpMessage">You've made a great choice. By signing up for our service, you'll be able to create your own custom registries and wish lists for all of your important moments in life! Weddings, Baby Showers, Birthdays, you name it - we'll help you make it happen!<br></br>
+            All we need is some info from you. Don't worry, we won't give it to anyone you don't trust (probably...)</p>
       </div>
+        </div>
 
         <div className="container">
           <div className="card">
             <div className="card-body">
-
+          <h5>All fields are required.</h5> <br></br>
               <form>
                 <div className="form-group">
                   <label htmlFor="InputEmail">Email address</label>
@@ -50,7 +52,7 @@ class SignUp extends React.Component {
                 </div>
 
                 <div className="form-group">
-                  <label  htmlFor="InputPassword2">Re-enter Password</label>
+                  <label htmlFor="InputPassword2">Re-enter Password</label>
                   <input value={this.state.password2} name="password2" onChange={this.handleInputChange} type="password" className="form-control" id="InputPassword2" />
                 </div>
 

@@ -1,5 +1,7 @@
 var db = require("../models");
 
+const withAuth = require('../middleware/authentication');
+
 module.exports = function(app) {
 
 

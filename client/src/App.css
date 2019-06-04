@@ -1,5 +1,6 @@
 body{
-  background: chocolate
+  background: chocolate;
+  font-family: 'Lato', sans-serif;
 }
 
 .header{
@@ -13,5 +14,8 @@ body{
 
 .logo{
   font-family: 'Gloria Hallelujah', cursive;
+}
 
+.signUpMessage{
+  font-size: 18pt
 }
