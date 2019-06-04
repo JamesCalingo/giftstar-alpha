@@ -16,9 +16,9 @@ module.exports = function(app) {
 
 
   app.get("/api/products",withAuth, function(req, res) {
-    req.body.userId = req.id;
+    req.body.registryId = req.id;
     db.Products.findAll({ where: {
-      userId: req.id
+      registryId: req.id
     }}).then(function(dbProducts) {
       res.json(dbProducts);
     });
@@ -27,7 +27,7 @@ module.exports = function(app) {
 
     // POST route for saving a new product
     app.post("/api/products",withAuth, function(req, res) {
-      req.body.userId = req.id;
+      req.body.registryId = req.id;
       db.Products.create(req.body).then(function(dbProducts) {
         res.json(dbProducts);
       });
