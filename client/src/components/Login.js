@@ -9,13 +9,13 @@ function Login() {
           <div className="card-body">
             <h5 className="mb-3">Don't have an account yet? Sign Up Here!</h5>
             <form>
-              <div class="form-group">
-                <label for="InputEmail">Email address</label>
-                <input type="email" class="form-control" id="InputEmail" aria-describedby="email" />
+              <div className="form-group">
+                <label htmlFor="InputEmail">Email address</label>
+                <input type="email" className="form-control" id="InputEmail" aria-describedby="email" />
 
               </div>
-              <div class="form-group">
-                <label for="InputPassword">Password</label>
+              <div className="form-group">
+                <label htmlFor="InputPassword">Password</label>
                 <input type="password" class="form-control" id="InputPassword" />
               </div>
 

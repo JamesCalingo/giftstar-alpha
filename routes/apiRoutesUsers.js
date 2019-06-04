@@ -7,6 +7,6 @@ module.exports = (app) =>{
   app.get("/api/users", withAuth, getUserProfile);
 // API Route to create new user (pre password)
   app.post("/api/users/register", register);
-
+// login user to system
   app.post("/api/users/login", login);
 }

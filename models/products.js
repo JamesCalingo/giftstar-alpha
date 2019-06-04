@@ -7,6 +7,12 @@ module.exports = function(sequelize, DataTypes) {
         len: [1]
       }
     },
+    productLink:{
+      type: DataTypes.STRING,
+      validate: {
+        len: [1]
+      }
+    },
     purchased: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
@@ -14,15 +20,9 @@ module.exports = function(sequelize, DataTypes) {
       validate: {
         len: [1]
     }
-  },
-  createdAt: {
-    type: DataTypes.DATE,
-    allowNull: false,
-    defaultValue: DataTypes.CURRENT_DATE,
-    validate: {
-      len: [1]
   }
-}
+ 
+
 
 });
 

@@ -5,7 +5,7 @@ function Welcome() {
   return (
     <div>
       <div className="jumbotron">
-        <h1>Gifts in the Gazebo</h1>
+        <h1 className="logo">Gifts in the Gazebo</h1>
         A place for wishlists, registries, and more!</div>
       <div className="container">
        <div className="row justify-content-center">
@@ -13,8 +13,8 @@ function Welcome() {
         <div className="card text-center">
           <div className="card-body">
             <h2>How can we help you today?</h2>
-            <NavLink to="/CreateList" className="btn btn-primary">Create Registry</NavLink>
-            <NavLink to="/RegistrySearch" className="btn btn-success">Find/View Registry</NavLink>
+            <NavLink to="/CreateList" className="btn btn-primary mx-2">Create Registry</NavLink>
+            <NavLink to="/RegistrySearch" className="btn btn-success mx-2">Find/View Registry</NavLink>
           </div>
         </div>
         </div>

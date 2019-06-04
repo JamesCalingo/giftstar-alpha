@@ -1,3 +1,17 @@
 body{
   background: chocolate
 }
+
+.header{
+  text-align: center;
+  background: white
+}
+
+.navbar, .jumbotron{
+  background: white
+}
+
+.logo{
+  font-family: 'Gloria Hallelujah', cursive;
+
+}
