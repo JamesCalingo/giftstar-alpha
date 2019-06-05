@@ -1,6 +1,6 @@
 import React from "react";
 
-function Unpurchased() {
+function Unpurchased(props) {
   return (
     <div className="container">
       <div className="card">

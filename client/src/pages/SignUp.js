@@ -1,4 +1,10 @@
 import React from "react";
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+import  { createUser } from "../utils/API"
+import { loginUser } from "../utils/API";
+
+const MySwal = withReactContent(Swal)
 
 class SignUp extends React.Component {
   state = {
@@ -22,7 +28,34 @@ class SignUp extends React.Component {
 
   handleUserCreate = event => {
     event.preventDefault();
-    alert(`Hello ${this.state.firstName} ${this.state.lastName}! a confirmation email will be sent to ${this.state.email}.`)
+    MySwal.fire(
+    {
+      title: <p>Success!</p>,
+      text: `Welcome, ${this.state.firstName}! We'll send you a confirmation email to ${this.state.email} soon, but for now, let's get you started!`,
+      confirmButtonText: "Sweetness!"  
+    })
+    createUser({
+      email: this.state.email,
+      password: this.state.password,
+      firstName: this.state.firstName,
+      lastName: this.state.lastName
+    })
+    .then(userData => {
+      console.log(userData);
+      loginUser({
+        email: this.state.email,
+        password: this.state.password
+      });
+      
+    })
+    .catch(err => {
+      console.log(err);
+      MySwal.fire({
+        title: "Whoops!",
+        text: "Looks like we ran into an error trying to log you in. Try again, and if the problem persists let us know."
+      })
+    })
+    
   }
 
   render() {
@@ -49,6 +82,7 @@ class SignUp extends React.Component {
                 <div className="form-group">
                   <label htmlFor="InputPassword1">Password</label>
                   <input value={this.state.password} name="password" onChange={this.handleInputChange} type="password" className="form-control" id="InputPassword1" />
+                  <small id="passwordHelp" className="form-text text-muted">Password must be at least 8 characters long and should include at least one number and/or capital letter.</small>
                 </div>
 
                 <div className="form-group">
