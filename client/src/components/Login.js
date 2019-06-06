@@ -2,6 +2,8 @@ import React from "react";
 import {loginUser} from "../utils/API"
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 
 const MySwal = withReactContent(Swal)
 
@@ -13,6 +15,7 @@ state = {
   loggedIn: false
 }
 
+notify = () => toast("Wow so easy !");
 handleInputChange = event => {
   // Getting the value and name of the input which triggered the change
   const { name, value } = event.target;
@@ -68,6 +71,7 @@ loginUser({
               <button type="submit" className="btn btn-primary" onClick={this.handleLogin}>Log in</button>
             </form> <br />
             I forgot something!
+            <ToastContainer />
         </div>
         </div>
       </div>

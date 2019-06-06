@@ -7,6 +7,8 @@ import SignUp from "./pages/SignUp"
 import Login from "./components/Login"
 import CreateList from "./pages/CreateList"
 import RegistrySearch from "./pages/RegistrySearch"
+import Account from "./components/Account"
+import AddItem from './components/AddItem';
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
           <Route exact path="/Login" component={Login} />
           <Route exact path="/CreateList" component={CreateList} />
           <Route exact path="/RegistrySearch" component={RegistrySearch} />
+          <Route exact path ="/Account" component={Account} />
+          <Route exact path="AddItem" component={AddItem} />
         </Switch>
       </React.Fragment>
      </Router>

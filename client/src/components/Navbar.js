@@ -20,6 +20,7 @@ function Navbar () {
       </li>
       
     </ul>
+    <NavLink to="/Account" className = "btn justify-content-end">Your Account</NavLink>
   </div>
 </nav>
   )

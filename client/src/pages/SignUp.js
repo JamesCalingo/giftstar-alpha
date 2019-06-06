@@ -3,6 +3,7 @@ import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 import  { createUser } from "../utils/API"
 import { loginUser } from "../utils/API";
+import { Redirect } from 'react-router'
 
 const MySwal = withReactContent(Swal)
 
@@ -28,12 +29,7 @@ class SignUp extends React.Component {
 
   handleUserCreate = event => {
     event.preventDefault();
-    MySwal.fire(
-    {
-      title: <p>Success!</p>,
-      text: `Welcome, ${this.state.firstName}! We'll send you a confirmation email to ${this.state.email} soon, but for now, let's get you started!`,
-      confirmButtonText: "Sweetness!"  
-    })
+    
     createUser({
       email: this.state.email,
       password: this.state.password,
@@ -42,11 +38,17 @@ class SignUp extends React.Component {
     })
     .then(userData => {
       console.log(userData);
+      MySwal.fire(
+        {
+          title: <p>Success!</p>,
+          text: `Welcome, ${this.state.firstName}! We'll send you a confirmation email to ${this.state.email} soon, but for now, let's get you started!`,
+          confirmButtonText: "Sweetness!"  
+        })
       loginUser({
         email: this.state.email,
         password: this.state.password
       });
-      
+     
     })
     .catch(err => {
       console.log(err);
