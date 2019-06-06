@@ -17,7 +17,17 @@ class AddItem extends React.Component {
 
   handleAddItem = event =>{
     event.preventDefault();
-    
+    addItem({
+      product: this.state.item,
+      productLink: this.state.link
+    })
+    .then(
+      alert("Item Added successfully!")
+    )
+    .catck(err =>{
+      console.log(err);
+      alert("An error has happened.")
+    })
   }
 
   render() {
@@ -37,7 +47,7 @@ class AddItem extends React.Component {
                 <input value={this.state.link} name="link" onChange={this.handleInputChange} type="input" class="form-control" id="linkInput" placeholder="Optional" />
                 <small id="linkHelp" class="form-text text-muted">You can include a link to an external listing for your product!  </small>
               </div>
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="submit" class="btn btn-primary" onClick={this.handleAddItem}>Submit</button>
             </form>
           </div>
         </div>
