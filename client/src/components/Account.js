@@ -1,8 +1,9 @@
 import React from "react"
-import { getMyData } from "../utils/API";
+import { getMyData, showMyRegistries } from "../utils/API";
+import { NavLink } from 'react-router-dom';
 
 const users = ""
-const registries= []
+
 
 
 // WHAT IS BEING DONE WITH THIS PAGE:
@@ -18,10 +19,14 @@ class Account extends React.Component {
     getMyData(users)
       .then(({data: userData}) =>{
         console.log(userData);
+        showMyRegistries()
+        .then(({data: registryData}) =>{
+          console.log (registryData);
         this.setState({
           user: userData,
-          registries: registries
+          registries: registryData
         })
+      })
       })
    
   }
@@ -39,12 +44,13 @@ class Account extends React.Component {
                     <ul>
                       {this.state.registries.map(regData=>{
                         return(
-                          <li>{this.state.registries ? this.state.registries.registry : ""}
-                          <button className="btn btn-info ml-3">Update</button>
+                          <li key={regData.id}>{regData.registry}
+                          <NavLink to="/RegistryList" className="btn btn-info ml-3">View/Update</NavLink>
                           </li>
                         )
                       })}
                     </ul>
+                    <NavLink to="/CreateList" className="btn btn-primary mx-2">Create New Registry</NavLink>
                   </div>
                 </div>
               </div>

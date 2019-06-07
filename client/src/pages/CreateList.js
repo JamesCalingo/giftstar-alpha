@@ -34,9 +34,9 @@ const handleSubmit = event =>{
     <input type="email" className="form-control form-control-lg" id="registryName" value={registry} onChange={e => setRegistry(e.target.value)}/>
   </div>
   <div className="form-group">
-    <label htmlFor="exampleFormControlSelect1">My list/Registry is for a:</label>
+    <label htmlFor="exampleFormControlSelect1">My Registry is for a:</label>
     <select value={type} onChange={e => setType(e.target.value)} className="form-control" id="exampleFormControlSelect1">
-      <option>Wish List</option>
+      <option>Please Select One:</option>
       <option>Wedding</option>
       <option>Baby Shower</option>
       <option>Other</option>

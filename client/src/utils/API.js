@@ -16,6 +16,10 @@ export const getMyData = userData =>{
   return axios.get("/api/users", userData)
 }
 
+export const showMyRegistries = registryData =>{
+  return axios.get("/api/registries", registryData)
+}
+
 export const addItem = productData =>{
 return axios.post("/api/products", productData)
 }

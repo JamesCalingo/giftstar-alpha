@@ -9,6 +9,7 @@ import CreateList from "./pages/CreateList"
 import RegistrySearch from "./pages/RegistrySearch"
 import Account from "./components/Account"
 import AddItem from './components/AddItem';
+import RegistryList from './components/RegistryList';
 
 function App() {
   return (
@@ -22,7 +23,8 @@ function App() {
           <Route exact path="/CreateList" component={CreateList} />
           <Route exact path="/RegistrySearch" component={RegistrySearch} />
           <Route exact path ="/Account" component={Account} />
-          <Route exact path="AddItem" component={AddItem} />
+          <Route exact path="/AddItem" component={AddItem} />
+          <Route exact path="/RegistryList" component={RegistryList} />
         </Switch>
       </React.Fragment>
      </Router>

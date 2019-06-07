@@ -1,10 +1,12 @@
 import React from "react";
-import ProdListItem from "ProdListItem";
+import ProdListItem from "./ProdListItem";
+import { NavLink } from 'react-router-dom';
+
 // import the products in the registry from the database somehow
 
 class RegistryList extends React.Component {
 state = {
-  product: product
+  product: ""
 }
 
 componentDidMount(){
@@ -19,12 +21,13 @@ render(){
         </div>
         <div className="card-content">
           <ul className="list-unstyled">
-          {this.state.products.map(products => {
+          {/* {this.state.products.map(products => {
             return(
               <ProdListItem key={products.id} name={products.name}/>
             )
-          })}
+          })} */}
           </ul>
+          <NavLink to="/AddItem" className="btn btn-primary mx-2">Add Items to my list</NavLink>
         </div>
       </div>
     </div>
