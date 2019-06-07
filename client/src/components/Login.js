@@ -52,6 +52,7 @@ loginUser({
   render (){
   return (
     <div>
+         <ToastContainer />
       <h1 className="text-center">Log In to Your Account</h1>
       <div className="container">
         <div className="card">
@@ -71,7 +72,7 @@ loginUser({
               <button type="submit" className="btn btn-primary" onClick={this.handleLogin}>Log in</button>
             </form> <br />
             I forgot something!
-            <ToastContainer />
+         
         </div>
         </div>
       </div>
