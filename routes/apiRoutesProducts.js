@@ -33,5 +33,7 @@ module.exports = function(app) {
       });
     });
 
+
+    // UPDATE route to set "purchased" to true
  };
 
