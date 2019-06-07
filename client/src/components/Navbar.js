@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import { NavLink } from 'react-router-dom';
 
 function Navbar () {
-  const [login, setLogin] = useState(false)
+  // const [login, setLogin] = useState(false)
   return(
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
   <NavLink to="/" className="btn logo">Gifts in the Gazebo</NavLink>
@@ -16,11 +16,11 @@ function Navbar () {
       <NavLink to="/SignUp" className="btn">Sign up</NavLink>
       </li>
       <li className="nav-item">
-      <NavLink to="/Login" className="btn">Login</NavLink>
+      <NavLink to="/Account" className = "btn">Your Account</NavLink>
       </li>
       
     </ul>
-    <NavLink to="/Account" className = "btn justify-content-end">Your Account</NavLink>
+   
   </div>
 </nav>
   )
