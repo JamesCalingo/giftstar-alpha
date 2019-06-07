@@ -21,7 +21,9 @@ app.use(express.json());
 app.use(cookieParser())
 
 // Static directory
-app.use(express.static("public"));
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static('client/build'));
+}
 
 // Routes
 // =============================================================
