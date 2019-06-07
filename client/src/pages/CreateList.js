@@ -1,20 +1,22 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import {createRegistry} from "../utils/API"
 
 function CreateList() {
   const [registry, setRegistry] = useState("");
+  const [type, setType] = useState("")
   const [description, setDescription] = useState("")
 
-  useEffect(()=>{
-    
-  })
 
 const handleSubmit = event =>{
   event.preventDefault();
-  alert(`succesfully created ${registry} for ${description}`)
-  createRegistry({
-    registry: "something",
-    description: "something"
+  createRegistry({registry, type, description})
+  .then(({data}) => {
+    alert(`succesfully created ${registry} for ${description}. ${type}`)
+    console.log(data);
+  })
+  .catch(err => {
+    console.log(err);
+    alert(`couldn't create ${registry} for ${type} with ${description}...`)
   })
 }
 
@@ -33,7 +35,7 @@ const handleSubmit = event =>{
   </div>
   <div className="form-group">
     <label htmlFor="exampleFormControlSelect1">My list/Registry is for a:</label>
-    <select className="form-control" id="exampleFormControlSelect1">
+    <select value={type} onChange={e => setType(e.target.value)} className="form-control" id="exampleFormControlSelect1">
       <option>Wish List</option>
       <option>Wedding</option>
       <option>Baby Shower</option>

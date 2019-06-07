@@ -12,8 +12,22 @@ export const createRegistry = registryData =>{
   return axios.post("/api/registries", registryData)
 }
 
+export const getMyData = userData =>{
+  return axios.get("/api/users", userData)
+}
+
+export const addItem = productData =>{
+return axios.post("/api/products", productData)
+}
+
+export const getMyRegistry = productData =>{
+  return axios.get("/api/products", productData)
+}
+
 export default {
  createUser,
  loginUser,
- createRegistry
+ createRegistry,
+ getMyData,
+ addItem
 };

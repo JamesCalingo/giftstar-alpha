@@ -5,17 +5,51 @@ class AddItem extends React.Component {
     item: "",
     link: "",
   }
+  handleInputChange = event => {
+    // Getting the value and name of the input which triggered the change
+    const { name, value } = event.target;
+  
+    // Updating the input's state
+    this.setState({
+      [name]: value
+    });
+  };
+
+  handleAddItem = event =>{
+    event.preventDefault();
+    addItem({
+      product: this.state.item,
+      productLink: this.state.link
+    })
+    .then(
+      alert("Item Added successfully!")
+    )
+    .catck(err =>{
+      console.log(err);
+      alert("An error has happened.")
+    })
+  }
 
   render() {
     return (
       <div className="container">
         <div className="card">
-          <div className="card-header"><h4>Registry settings</h4>
+          <div className="card-header"><h4>Add Item</h4>
           </div>
           <div className="card-content">
-            You must be logged in as the owner of this registry to perform this action.<br />
-            This would be a page to add/delete items from the list and also delete the registry (for whatever reason). Only the owner of the registry can access this, and it'd probably be similar to most social media sites where your view of your page is different from others
-      </div>
+            <form>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Item</label>
+                <input value={this.state.item} name="item" onChange={this.handleInputChange} type="input" class="form-control" id="itemInput" aria-describedby="itemInput" />
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Link</label>
+                <input value={this.state.link} name="link" onChange={this.handleInputChange} type="input" class="form-control" id="linkInput" placeholder="Optional" />
+                <small id="linkHelp" class="form-text text-muted">You can include a link to an external listing for your product!  </small>
+              </div>
+              <button type="submit" class="btn btn-primary" onClick={this.handleAddItem}>Submit</button>
+            </form>
+          </div>
         </div>
       </div>
     )
