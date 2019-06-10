@@ -15,7 +15,11 @@ state = {
   loggedIn: false
 }
 
-notify = () => toast("Wow so easy !");
+notify = () => {
+toast.error("Login failed! Check your email and password then try again.", {
+  position: toast.POSITION.BOTTOM_CENTER
+});
+}
 handleInputChange = event => {
   // Getting the value and name of the input which triggered the change
   const { name, value } = event.target;
@@ -41,10 +45,7 @@ loginUser({
 })
 .catch(err => {
   console.log(err);
-  MySwal.fire({
-    title: "Sorry!",
-    text: "There was a problem logging in. Check that your email and password are correct and then try again."
-  })
+  this.notify()
 })
 }
 
@@ -57,7 +58,7 @@ loginUser({
       <div className="container">
         <div className="card">
           <div className="card-body">
-            <h5 className="mb-3">Don't have an account yet? Sign Up Here!</h5>
+            <h5 className="mb-3">Don't have an account yet? <a href = "/SignUp">Sign Up Here!</a></h5>
             <form>
               <div className="form-group">
                 <label htmlFor="InputEmail">Email address</label>
@@ -71,7 +72,7 @@ loginUser({
 
               <button type="submit" className="btn btn-primary" onClick={this.handleLogin}>Log in</button>
             </form> <br />
-            I forgot something!
+            <a href="/Reset">I forgot something!</a>
          
         </div>
         </div>

@@ -1,5 +1,7 @@
 import React, {useState} from "react";
 import {createRegistry} from "../utils/API"
+import { toast, ToastContainer } from "react-toastify";
+
 
 function CreateList() {
   const [registry, setRegistry] = useState("");
@@ -11,12 +13,12 @@ const handleSubmit = event =>{
   event.preventDefault();
   createRegistry({registry, type, description})
   .then(({data}) => {
-    alert(`succesfully created ${registry} for ${description}. ${type}`)
+    toast.success(`succesfully created ${registry} for ${type}.`, {position: toast.POSITION.BOTTOM_CENTER})
     console.log(data);
   })
   .catch(err => {
     console.log(err);
-    alert(`couldn't create ${registry} for ${type} with ${description}...`)
+    toast.error(`Unfortunately, something happened and we couldn't create your registry...`)
   })
 }
 
@@ -24,6 +26,7 @@ const handleSubmit = event =>{
   return(
     <React.Fragment>
     <div>
+      <ToastContainer />
       <h1 className="text-center page-title">Create a new List/Registry!</h1>
     <div className="container">
     <div className="card">

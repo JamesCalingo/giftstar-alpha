@@ -19,3 +19,14 @@ body{
 .signUpMessage{
   font-size: 18pt
 }
+
+
+
+.list li {
+  list-style: none;
+  border-bottom: 1px dotted #ccc;
+  text-indent: 25px;
+  height: auto;
+  padding: 10px;
+  text-transform: capitalize;
+}
