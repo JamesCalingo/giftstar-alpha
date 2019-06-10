@@ -9,9 +9,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     productLink:{
       type: DataTypes.STRING,
-      validate: {
-        len: [1]
-      }
+      
     },
     purchased: {
       type: DataTypes.BOOLEAN,

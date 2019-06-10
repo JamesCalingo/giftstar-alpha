@@ -36,7 +36,7 @@ class Account extends React.Component {
       <div>
           
               <div className="container">
-                <h1 className="text-center"> {this.state.user ? this.state.user.firstName : ""} {this.state.user ? this.state.user.lastName : ""}</h1>
+                <h1 className="text-center"> {this.state.user ? this.state.user.firstName : "You must be logged in to see this!"} {this.state.user ? this.state.user.lastName : ""}</h1>
 
                 <div className="card">
                   <div className="card-header">My Registries</div>
@@ -44,7 +44,7 @@ class Account extends React.Component {
                     <ul>
                       {this.state.registries.map(regData=>{
                         return(
-                          <li key={regData.id}>{regData.registry}
+                          <li className="border-bottom" key={regData.id}><strong>{regData.registry}</strong> | {regData.type} <br />
                           <NavLink to="/RegistryList" className="btn btn-info ml-3">View/Update</NavLink>
                           </li>
                         )

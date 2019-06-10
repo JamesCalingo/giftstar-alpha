@@ -35,5 +35,17 @@ module.exports = function(app) {
 
 
     // UPDATE route to set "purchased" to true
+    app.put("/api/products",withAuth, function(req, res) {
+      req.body.productId = req.id;
+      db.products.update({
+      where: {id: req.params.id}
+    })
+      .then(productData => res.json(productData))
+      .catch(err => {
+        console.log(err);
+        res.json(err);
+      });
+  });
+    
  };
 

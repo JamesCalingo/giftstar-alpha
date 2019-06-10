@@ -10,6 +10,7 @@ import RegistrySearch from "./pages/RegistrySearch"
 import Account from "./components/Account"
 import AddItem from './components/AddItem';
 import RegistryList from './components/RegistryList';
+import Reset from './pages/Reset';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route exact path ="/Account" component={Account} />
           <Route exact path="/AddItem" component={AddItem} />
           <Route exact path="/RegistryList" component={RegistryList} />
+          <Route exact path="/Reset" component={Reset} />
         </Switch>
       </React.Fragment>
      </Router>

@@ -2,8 +2,8 @@ import React from "react";
 
 function ProdListItem(props){
   return(
-<li>{props.name}  | <a href={props.link}>Buy it here</a>
-    <button className="btn btn-success ml-3">Claim this item!</button>
+<li className="border-bottom">{props.name}  | <a href={props.link ? props.link : ""}>Buy it here</a> <br></br>
+    <button className="btn btn-success ml-3" onClick={props.claimProduct}>Claim this item!</button>
     </li>
   )
 }

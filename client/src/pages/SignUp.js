@@ -3,7 +3,9 @@ import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 import  { createUser } from "../utils/API"
 import { loginUser } from "../utils/API";
-import { Redirect } from 'react-router'
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
+// import { Redirect } from 'react-router'
 
 const MySwal = withReactContent(Swal)
 
@@ -15,6 +17,20 @@ class SignUp extends React.Component {
     firstName: "",
     lastName: "",
     loggedIn: false
+  }
+
+  missingField = () =>{
+    toast.error("You forgot to fill in one of the fields. Please fill in all fields and then try again.",
+    {position: toast.POSITION.BOTTOM_CENTER})
+  }
+
+  passwordCheck=()=>{
+    toast.warn("Your passwords don't match.",
+    {position: toast.POSITION.BOTTOM_CENTER})
+  }
+
+  shortPW = ()=>{
+    toast.warn("Your password must be at least 8 characters. IT SAYS SO RIGHT UNDER THE FIELD!", {position: toast.POSITION.BOTTOM_CENTER})
   }
 
   handleInputChange = event => {
@@ -30,6 +46,21 @@ class SignUp extends React.Component {
   handleUserCreate = event => {
     event.preventDefault();
     
+    if(this.state.email === "" || this.state.password===""||this.state.firstName===""||this.state.lastName===""||this.state.password2 ===""){
+      this.missingField();
+      return false
+    }
+
+    if(this.state.password !== this.state.password2){
+      this.passwordCheck()
+      return false
+    }
+
+    if(this.state.password.length > 8){
+      this.shortPW();
+      return false
+    }
+
     createUser({
       email: this.state.email,
       password: this.state.password,
@@ -42,7 +73,7 @@ class SignUp extends React.Component {
         {
           title: <p>Success!</p>,
           text: `Welcome, ${this.state.firstName}! We'll send you a confirmation email to ${this.state.email} soon, but for now, let's get you started!`,
-          confirmButtonText: "Sweetness!"  
+          confirmButtonText: "Sweetness!",
         })
       loginUser({
         email: this.state.email,
@@ -63,6 +94,7 @@ class SignUp extends React.Component {
   render() {
     return (
       <div>
+        <ToastContainer />
         <div className="header text-center mb-3">
           <div className="container">
             <h1>Sign Up Here!</h1>

@@ -28,6 +28,10 @@ export const getMyRegistry = productData =>{
   return axios.get("/api/products", productData)
 }
 
+export const claimProduct = productData=>{
+  return axios.put("/api/products", productData)
+}
+
 export default {
  createUser,
  loginUser,
