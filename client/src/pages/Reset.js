@@ -13,6 +13,7 @@ function Reset() {
     <li>Fixing an issue with products going to user IDs</li>
     <li>Guest views to search for registries and buy items</li>
     <li>CSS stuff</li>
+    <li>A LOGOUT BUTTON (Because I'd rather not have a Sword Art Online-esque situation)</li>
       </ul>
       </div>
     </div>
