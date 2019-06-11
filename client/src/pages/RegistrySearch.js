@@ -1,4 +1,5 @@
 import React from "react";
+import { findARegistry } from "../utils/API";
 
 class RegistrySearch extends React.Component {
   state = {
@@ -17,10 +18,20 @@ class RegistrySearch extends React.Component {
 
   handleSearch = event =>{
     event.preventDefault();
-    alert(this.state.registry)
-    this.setState({
-      registry: ""
+    findARegistry({
+      registry: this.state.registry
     })
+    .then(data=>{
+      console.log(data);
+      this.setState({
+        registry: data
+      })
+    })
+      .catch(err=>{
+        console.log(err)
+      })
+    
+  
   }
 
   render() {
@@ -29,16 +40,18 @@ class RegistrySearch extends React.Component {
         <h1>Search for a list/registry here!</h1>
         <div className="card">
           <form>
-            <div class="form-group">
-              <label for="registryName">List/Registry name</label>
-              <input value={this.state.registry} name="registry" onChange={this.handleInputChange} type="input" class="form-control form-control-lg" id="registryName" aria-describedby="RegistryName" placeholder="" />
+            <div className="form-group">
+              <label htmlFor="registryName">Registry name</label>
+              <input value={this.state.registry} name="registry" onChange={this.handleInputChange} type="input" className="form-control form-control-lg" id="registryName" aria-describedby="RegistryName" placeholder="" />
 
             </div>
 
-            <button type="submit" class="btn btn-primary" onClick={this.handleSearch}>Submit</button>
+            <button type="submit" className="btn btn-primary" onClick={this.handleSearch}>Submit</button>
           </form>
-
+        
         </div>
+        <div className="card">
+        {this.state.registry ? this.state.registry : ""}</div>
       </div>
     )
   }

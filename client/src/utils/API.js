@@ -8,12 +8,12 @@ export const loginUser = userData =>{
   return axios.post("/api/users/login", userData)
 }
 
-export const createRegistry = registryData =>{
-  return axios.post("/api/registries", registryData)
-}
-
 export const getMyData = userData =>{
   return axios.get("/api/users", userData)
+}
+
+export const createRegistry = registryData =>{
+  return axios.post("/api/registries", registryData)
 }
 
 export const showMyRegistries = registryData =>{
@@ -32,10 +32,14 @@ export const claimProduct = productData=>{
   return axios.put("/api/products", productData)
 }
 
-export default {
- createUser,
- loginUser,
- createRegistry,
- getMyData,
- addItem
-};
+export const findARegistry = registryData=>{
+  return axios.get("api/registries/public", registryData)
+}
+
+// export default {
+//  createUser,
+//  loginUser,
+//  createRegistry,
+//  getMyData,
+//  addItem
+// };
