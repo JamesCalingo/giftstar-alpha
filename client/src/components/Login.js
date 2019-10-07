@@ -72,7 +72,7 @@ loginUser({
 
               <button type="submit" className="btn btn-primary" onClick={this.handleLogin}>Log in</button>
             </form> <br />
-            <a href="/Reset">I forgot something!</a>
+            <a href="/Reset">I forgot my password!</a>
          
         </div>
         </div>

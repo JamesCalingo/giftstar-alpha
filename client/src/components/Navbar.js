@@ -13,7 +13,7 @@ function Navbar () {
     <ul className="navbar-nav justify-content-end">
      
       <li className="nav-item">
-      <NavLink to="/SignUp" className="btn">Sign up</NavLink>
+      <NavLink to="/Login" className="btn">Log In</NavLink>
       </li>
       <li className="nav-item">
       <NavLink to="/Account" className = "btn">Your Account</NavLink>

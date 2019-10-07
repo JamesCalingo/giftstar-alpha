@@ -1,11 +1,11 @@
 import React from "react";
 import { NavLink } from 'react-router-dom';
-
+// import { url } from "inspector";
 
 function Welcome() {
   return (
     <div>
-      <div className="jumbotron">
+      <div className="jumbotron" style={{ backgroundImage:  "url('client/src/components/IMG_3307.JPG')"}}>
         <h1 className="logo">Gifts in the Gazebo</h1>
         A place for wishlists, registries, and more!</div>
       <div className="container">

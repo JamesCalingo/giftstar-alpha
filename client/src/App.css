@@ -8,8 +8,12 @@ body{
   background: white
 }
 
-.navbar, .jumbotron{
-  background: white
+.navbar{
+  background: whitesmoke
+}
+
+.jumbotron{
+  background-image: url("components/IMG_3307.JPG")
 }
 
 .logo{
