@@ -17,19 +17,20 @@ class RegistrySearch extends React.Component {
   };
 
   handleSearch = event =>{
-    event.preventDefault();
-    findARegistry({
-      registry: this.state.registry
-    })
-    .then(data=>{
-      console.log(data);
-      this.setState({
-        registry: data
-      })
-    })
-      .catch(err=>{
-        console.log(err)
-      })
+    alert("This is currently under construction right now, but you can expect to have this active soon!")
+    // event.preventDefault();
+    // findARegistry({
+    //   registry: this.state.registry
+    // })
+    // .then(data=>{
+    //   console.log(data);
+    //   this.setState({
+    //     registry: data
+    //   })
+    // })
+    //   .catch(err=>{
+    //     console.log(err)
+    //   })
     
   
   }
