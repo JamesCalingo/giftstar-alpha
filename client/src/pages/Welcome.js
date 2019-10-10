@@ -15,7 +15,7 @@ function Welcome() {
           <div className="card-body">
             <h2>How can we help you today?</h2>
             <NavLink to="/LogIn" className="btn btn-primary mx-2">Create Registry</NavLink>
-            <NavLink to="/RegistrySearch" className="btn btn-success mx-2">Find/View Registry</NavLink>
+            <NavLink to="/UserSearch" className="btn btn-success mx-2">Find/View Registry</NavLink>
           </div>
         </div>
         </div>

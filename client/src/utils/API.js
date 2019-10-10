@@ -32,8 +32,8 @@ export const claimProduct = productData=>{
   return axios.put("/api/products", productData)
 }
 
-export const findARegistry = registryData=>{
-  return axios.get("api/registries/public", registryData)
+export const findUser = userData=>{
+  return axios.get("api/users/public", userData)
 }
 
 // export default {

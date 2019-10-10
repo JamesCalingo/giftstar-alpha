@@ -30,7 +30,7 @@ class SignUp extends React.Component {
   }
 
   shortPW = ()=>{
-    toast.warn("Your password must be at least 8 characters. IT SAYS SO RIGHT UNDER THE FIELD!", {position: toast.POSITION.BOTTOM_CENTER})
+    toast.warn("Your password must be at least 8 characters long.", {position: toast.POSITION.BOTTOM_CENTER})
   }
 
   handleInputChange = event => {

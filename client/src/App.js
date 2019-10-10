@@ -6,7 +6,7 @@ import Welcome from "./pages/Welcome"
 import SignUp from "./pages/SignUp"
 import Login from "./components/Login"
 import CreateList from "./pages/CreateList"
-import RegistrySearch from "./pages/RegistrySearch"
+import UserSearch from "./pages/UserSearch"
 import Account from "./components/Account"
 import AddItem from './components/AddItem';
 import RegistryList from './components/RegistryList';
@@ -22,7 +22,7 @@ function App() {
           <Route exact path="/SignUp" component={SignUp} />
           <Route exact path="/Login" component={Login} />
           <Route exact path="/CreateList" component={CreateList} />
-          <Route exact path="/RegistrySearch" component={RegistrySearch} />
+          <Route exact path="/UserSearch" component={UserSearch} />
           <Route exact path ="/Account" component={Account} />
           <Route exact path="/AddItem" component={AddItem} />
           <Route exact path="/RegistryList" component={RegistryList} />

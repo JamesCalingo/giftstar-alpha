@@ -37,7 +37,11 @@ loginUser({
   password: this.state.password
 }).then(() =>{
   MySwal.fire({
-    title: "You're in!"
+    title: "You're in!",
+    type: "success"
+  },
+  function(){
+    window.location.href="/Account"
   })
   this.setState({
     loggedIn: true
