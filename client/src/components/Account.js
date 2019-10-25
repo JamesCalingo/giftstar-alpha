@@ -36,7 +36,7 @@ class Account extends React.Component {
       <div>
           
               <div className="container">
-                <h1 className="text-center"> {this.state.user ? this.state.user.firstName : "You must be logged in to see this!"} {this.state.user ? this.state.user.lastName : ""}</h1>
+                <h1 className="text-center"> {this.state.user ? this.state.user.firstName : <NavLink to="Login">You must be logged in to see this! </NavLink>} {this.state.user ? this.state.user.lastName : ""}</h1>
 
                 <div className="card">
                   <div className="card-header">My Registries</div>
