@@ -9,7 +9,7 @@ function Success (){
 
       <p>Now, let's get your first gift registry started!</p>
 
-      <button className="btn btn-success btn-lg">Create Registry</button> <br />
+      <button className="btn btn-success btn-lg mb-3">Create Registry</button> <br />
       <button className="btn btn-primary">View My Account Page</button>
     </div>
   )
