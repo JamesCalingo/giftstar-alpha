@@ -5,6 +5,7 @@ import  { createUser } from "../utils/API"
 import { loginUser } from "../utils/API";
 import { ToastContainer, toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
+  import { NavLink } from 'react-router-dom';
 // import { Redirect } from 'react-router'
 
 const MySwal = withReactContent(Swal)
@@ -69,17 +70,17 @@ class SignUp extends React.Component {
     })
     .then(userData => {
       console.log(userData);
-      MySwal.fire(
-        {
-          title: <p>Success!</p>,
-          text: `Welcome, ${this.state.firstName}! We'll send you a confirmation email to ${this.state.email} soon, but for now, let's get you started!`,
-          confirmButtonText: "Sweetness!",
-        })
+      // MySwal.fire(
+      //   {
+      //     title: <p>Success!</p>,
+      //     text: `Welcome, ${this.state.firstName}! We'll send you a confirmation email to ${this.state.email} soon, but for now, let's get you started!`,
+      //     confirmButtonText: "Sweetness!",
+      //   })
       loginUser({
         email: this.state.email,
         password: this.state.password
       });
-     
+     this.props.history.push("/Success")
     })
     .catch(err => {
       console.log(err);
@@ -100,6 +101,8 @@ class SignUp extends React.Component {
             <h1>Sign Up Here!</h1>
             <p className="signUpMessage">You've made a great choice. By signing up for our service, you'll be able to create your own custom registries and wish lists for all of your important moments in life! Weddings, Baby Showers, Birthdays, you name it - we'll help you make it happen!<br></br>
             All we need is some info from you. Don't worry, we won't give it to anyone you don't trust (probably...)</p>
+
+            <h3>If you already have an account, you can <NavLink to="/LogIn">Log In</NavLink> here</h3>
       </div>
         </div>
 

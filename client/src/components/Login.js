@@ -1,11 +1,9 @@
 import React from "react";
 import {loginUser} from "../utils/API"
-import Swal from 'sweetalert2'
-import withReactContent from 'sweetalert2-react-content'
 import { ToastContainer, toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
 
-const MySwal = withReactContent(Swal)
+
 
 class Login extends React.Component {
   
@@ -36,13 +34,7 @@ loginUser({
   email: this.state.email,
   password: this.state.password
 }).then(() =>{
-  MySwal.fire({
-    title: "You're in!",
-    type: "success"
-  },
-  function(){
-    window.location.href="/Account"
-  })
+ this.props.history.push("/Account")
   this.setState({
     loggedIn: true
   })
