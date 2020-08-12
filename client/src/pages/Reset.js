@@ -1,6 +1,11 @@
 import React from "react";
 
 function Reset() {
+
+  const message = event =>{
+    event.preventDefault();
+    alert("There was a problem processing your request. Mainly, that this isn't working QUITE yet.")
+  }
   return (
     <div>
       <h1 className="text-center">Reset your password</h1>
@@ -13,7 +18,7 @@ function Reset() {
     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
   </div>
 
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary" onClick={message}>Submit</button>
 </form>
       </div>
     </div>
