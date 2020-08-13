@@ -1,10 +1,19 @@
 import React from "react";
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content'
+
+
 
 function Reset() {
+  const MySwal = withReactContent(Swal)
 
   const message = event =>{
     event.preventDefault();
-    alert("There was a problem processing your request. Mainly, that this isn't working QUITE yet.")
+   MySwal.fire({
+     type: "error",
+     title: "An error occured",
+     text: "...mainly that this is still under construction."
+   })
   }
   return (
     <div>

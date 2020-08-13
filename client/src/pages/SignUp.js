@@ -8,7 +8,7 @@ import { ToastContainer, toast } from 'react-toastify';
   import { NavLink } from 'react-router-dom';
 // import { Redirect } from 'react-router'
 
-const MySwal = withReactContent(Swal)
+const MySwal = withReactContent(Swal);
 
 class SignUp extends React.Component {
   state = {
