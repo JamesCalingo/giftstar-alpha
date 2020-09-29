@@ -1,5 +1,5 @@
-module.exports = function(sequelize, DataTypes) {
-  var Registries = sequelize.define("registries", {
+module.exports = function (sequelize, DataTypes) {
+  var Registries = sequelize.define('registries', {
     registry: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -7,9 +7,9 @@ module.exports = function(sequelize, DataTypes) {
         len: [1]
       }
     },
-    type:{
+    type: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
     description: {
       type: DataTypes.STRING,
@@ -18,11 +18,11 @@ module.exports = function(sequelize, DataTypes) {
         len: [1, 280]
       }
     }
-});
+  })
 
-Registries.associate = function(models) {
-  Registries.belongsTo(models.users);
-  Registries.hasMany(models.products)
+  Registries.associate = function (models) {
+    Registries.belongsTo(models.users)
+    Registries.hasMany(models.products)
+  }
+  return Registries
 }
-  return Registries;
- };

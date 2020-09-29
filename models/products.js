@@ -1,5 +1,5 @@
-module.exports = function(sequelize, DataTypes) {
-  var Products = sequelize.define("products", {
+module.exports = function (sequelize, DataTypes) {
+  var Products = sequelize.define('products', {
     product: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -7,9 +7,9 @@ module.exports = function(sequelize, DataTypes) {
         len: [1]
       }
     },
-    productLink:{
-      type: DataTypes.STRING,
-      
+    productLink: {
+      type: DataTypes.STRING
+
     },
     purchased: {
       type: DataTypes.BOOLEAN,
@@ -17,15 +17,13 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: false,
       validate: {
         len: [1]
+      }
     }
+
+  })
+
+  Products.associate = function (models) {
+    Products.belongsTo(models.registries)
   }
- 
-
-
-});
-
-Products.associate = function(models) {
-  Products.belongsTo(models.registries);
+  return Products
 }
-  return Products;
- };
