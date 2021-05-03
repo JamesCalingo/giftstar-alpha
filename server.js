@@ -21,7 +21,7 @@ if (process.env.NODE_ENV === 'production') {
 require('./routes/apiRoutesProducts')(app)
 require('./routes/apiRoutesUsers')(app)
 require('./routes/apiRoutesRegistries')(app)
-require('routes/apiRotuesPublic')(app)
+require('./routes/apiRoutesPublic')(app)
 require('./routes/htmlRoutes')(app)
 
 // Syncing our sequelize models and then starting our Express app
