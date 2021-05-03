@@ -34,7 +34,7 @@ loginUser({
   email: this.state.email,
   password: this.state.password
 }).then(() =>{
- this.props.history.push("/Account")
+ this.props.history.push("/RegistryList")
   this.setState({
     loggedIn: true
   })
