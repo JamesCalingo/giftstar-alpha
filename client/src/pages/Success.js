@@ -11,7 +11,7 @@ function Success () {
       <p>Now, let's get your first gift registry started!</p>
 
       <NavLink to='/CreateList' className='btn btn-success btn-lg mb-3'>Create Registry</NavLink> <br />
-      <NavLink to='/Account' className='btn btn-primary'>View My Account Page</NavLink>
+      {/* <NavLink to='/Account' className='btn btn-primary'>View My Account Page</NavLink> */}
     </div>
   )
 }

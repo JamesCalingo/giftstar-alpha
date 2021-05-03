@@ -35,7 +35,7 @@ class RegistryList extends React.Component {
     return (
       <div className="container">
         <ToastContainer />
-        <h1 className="text-center">{this.state.user.firstName} {this.state.user.lastName}'s Wishlist</h1>
+        <h1 className="text-center">{this.state.user ? this.state.user.firstName : "No account is logged in right now."} {this.state.user ? this.state.user.lastName + "'s Wishlist" : ""}</h1>
         <div className="row">
           <div className="col-md-4">
             <AddItem />
