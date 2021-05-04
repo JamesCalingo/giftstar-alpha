@@ -1,4 +1,4 @@
-// This allows users to have registries
+// This allows users to have multiple registries. Currently, products are being assigned to users, but in the future, I envision having users able to have multiple registries.
 
 module.exports = function (sequelize, DataTypes) {
   var Registries = sequelize.define('registries', {
