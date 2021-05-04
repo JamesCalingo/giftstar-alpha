@@ -1,52 +1,50 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
+
 import {loginUser} from "../utils/API"
 import { ToastContainer, toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
 
+function Login () {
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
 
+  const loggedIn = () => {
+    toast.success("Logged In!", {
+      position: toast.POSITION.BOTTOM_CENTER
+    })
+  }
 
-class Login extends React.Component {
-  
-state = {
-  email: "",
-  password: "",
-  loggedIn: false
-}
-
-notify = () => {
+const notify = () => {
 toast.error("Login failed! Check your email and password then try again.", {
   position: toast.POSITION.BOTTOM_CENTER
 });
 }
-handleInputChange = event => {
-  // Getting the value and name of the input which triggered the change
-  const { name, value } = event.target;
 
-  // Updating the input's state
-  this.setState({
-    [name]: value
-  });
-};
-
-handleLogin = event => {
+const handleLogin = event => {
   event.preventDefault();
-loginUser({
-  email: this.state.email,
-  password: this.state.password
-}).then(() =>{
- this.props.history.push("/RegistryList")
-  this.setState({
-    loggedIn: true
+  console.log(email, password)
+  loginUser({
+    email: email,
+    password: password
+  }).then(() =>{
+   loggedIn()
   })
-})
-.catch(err => {
-  console.log(err);
-  this.notify()
-})
+  .catch(err => {
+    console.log(err);
+    notify()
+  })
 }
 
+// handleInputChange = event => {
+//   // Getting the value and name of the input which triggered the change
+//   const { name, value } = event.target;
 
-  render (){
+//   // Updating the input's state
+//   this.setState({
+//     [name]: value
+//   });
+// };
+
   return (
     <div>
          <ToastContainer />
@@ -58,15 +56,15 @@ loginUser({
             <form>
               <div className="form-group">
                 <label htmlFor="InputEmail">Email address</label>
-                <input value={this.state.email} name="email" onChange={this.handleInputChange} type="email" className="form-control" id="InputEmail" aria-describedby="email" />
+                <input value={email} name="email" onChange={event => setEmail(event.target.value)} type="email" className="form-control" id="InputEmail" aria-describedby="email" />
 
               </div>
               <div className="form-group">
                 <label htmlFor="InputPassword">Password</label>
-                <input  value={this.state.password} name="password" onChange={this.handleInputChange} type="password" className="form-control" id="InputPassword" />
+                <input  value={password} name="password" onChange={event => setPassword(event.target.value)} type="password" className="form-control" id="InputPassword" />
               </div>
 
-              <button type="submit" className="btn btn-primary" onClick={this.handleLogin}>Log in</button>
+              <button type="submit" className="btn btn-primary" onClick={handleLogin}>Log in</button>
             </form> <br />
             <a href="/Reset">I forgot my password!</a>
          
@@ -75,7 +73,7 @@ loginUser({
       </div>
     </div>
   )
-  }
+  
 }
 
 export default Login

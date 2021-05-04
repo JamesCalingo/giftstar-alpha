@@ -7,7 +7,7 @@ function Welcome () {
     <div>
       <div className='jumbotron' style={{ backgroundImage: "url('client/src/components/IMG_3307.JPG')" }}>
         <h1 className='logo'>Gifts in the Gazebo</h1>
-        A place for wishlists, registries, and more!
+        Get the things you want the most!
       </div>
       <div className='container'>
         <div className='row justify-content-center'>

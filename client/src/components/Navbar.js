@@ -16,7 +16,7 @@ function Navbar () {
             <NavLink to='/Login' className='btn'>Log In</NavLink>
           </li>
           <li className='nav-item'>
-            <NavLink to='/RegistryList' className='btn'>Your Account</NavLink>
+            <NavLink to='/UserPage' className='btn'>Your Account</NavLink>
           </li>
 
         </ul>

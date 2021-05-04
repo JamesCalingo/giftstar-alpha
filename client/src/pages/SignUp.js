@@ -70,12 +70,6 @@ class SignUp extends React.Component {
     })
     .then(userData => {
       console.log(userData);
-      // MySwal.fire(
-      //   {
-      //     title: <p>Success!</p>,
-      //     text: `Welcome, ${this.state.firstName}! We'll send you a confirmation email to ${this.state.email} soon, but for now, let's get you started!`,
-      //     confirmButtonText: "Sweetness!",
-      //   })
       loginUser({
         email: this.state.email,
         password: this.state.password
