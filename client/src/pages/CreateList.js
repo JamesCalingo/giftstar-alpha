@@ -1,3 +1,4 @@
+// This page is for creating multiple lists per user. Currently, however, products are tied to users, so all lists created by a user have the same products. In the future, I would like to try and rectify that.
 import React, { useState } from 'react'
 import { createRegistry } from '../utils/API'
 import { toast, ToastContainer } from 'react-toastify'

@@ -23,7 +23,7 @@ module.exports = function (sequelize, DataTypes) {
   })
 
   Products.associate = function (models) {
-    Products.belongsTo(models.registries)
+    Products.belongsTo(models.users)
   }
   return Products
 }

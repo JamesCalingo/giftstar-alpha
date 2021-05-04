@@ -1,52 +1,51 @@
-import React from "react";
+import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { addItem } from "../utils/API";
 
-class AddItem extends React.Component {
-  state = {
-    item: "",
-    link: "",
-  };
-  success = () => {
-    toast.success("Item successfully added!", {
-      position: toast.POSITION.BOTTOM_CENTER,
-    });
-    window.location.reload(false)
-  };
-  failure = () => {
-    toast.error("An error occurred.", {
-      position: toast.POSITION.BOTTOM_CENTER,
-    });
-  };
+function AddItem() {
+  let [ item, setItem ] = useState("")
+  let [ link, setLink ] = useState("")
 
-  handleInputChange = (event) => {
-    // Getting the value and name of the input which triggered the change
-    const { name, value } = event.target;
+  const success = () => {
+     toast.success("Item successfully added!", {
+       position: toast.POSITION.BOTTOM_CENTER,
+     });
+     window.location.reload(false)
+   };
+   const failure = () => {
+     toast.error("An error occurred.", {
+       position: toast.POSITION.BOTTOM_CENTER,
+     });
+   };
 
-    // Updating the input's state
-    this.setState({
-      [name]: value,
-    });
-  };
-
-  handleAddItem = (event) => {
-    event.preventDefault();
-    addItem({
-      product: this.state.item,
-      productLink: this.state.link,
+  function handleSubmit(event) {
+    event.preventDefault()
+    addItem ({
+      product: item,
+      productLink: link
+    }).then(data => {
+      console.log(data)
+      success()
+    }).catch(err => {
+      console.log(err)
+      failure()
     })
-      .then(({ data: productData }) => {
-        console.log(productData);
-        this.success();
-      })
-      .catch((err) => {
-        console.log(err);
-        this.failure();
-      });
-  };
+  }
 
-  render() {
+
+  // handleInputChange = (event) => {
+  //   // Getting the value and name of the input which triggered the change
+  //   const { name, value } = event.target;
+
+  //   // Updating the input's state
+  //   this.setState({
+  //     [name]: value,
+  //   });
+  // };
+
+  
+  
     return (
       <div className="container">
         <ToastContainer />
@@ -59,9 +58,9 @@ class AddItem extends React.Component {
               <div className="form-group">
                 <label htmlFor="exampleInputEmail1">Item</label>
                 <input
-                  value={this.state.item}
+                  value={item}
                   name="item"
-                  onChange={this.handleInputChange}
+                  onChange={event => setItem(event.target.value)}
                   type="input"
                   className="form-control"
                   id="itemInput"
@@ -72,11 +71,11 @@ class AddItem extends React.Component {
                 </small>
               </div>
               <div className="form-group">
-                <label htmlFor="exampleInputPassword1">Link</label>
+                <label htmlFor="itemLink">Link</label>
                 <input
-                  value={this.state.link}
+                  value={link}
                   name="link"
-                  onChange={this.handleInputChange}
+                  onChange={event => setLink(event.target.value)}
                   type="input"
                   className="form-control"
                   id="linkInput"
@@ -84,14 +83,13 @@ class AddItem extends React.Component {
                 />
                 <small id="linkHelp" className="form-text text-muted">
                   You can include a link to an external listing for your
-                  product! This will help your guests find the perfect gifts for
-                  you!{" "}
+                  product! This will help your guests find the perfect gifts for you!
                 </small>
               </div>
               <button
                 type="submit"
                 className="btn btn-success"
-                onClick={this.handleAddItem}
+                onClick={handleSubmit}
               >
                 Submit
               </button>
@@ -100,7 +98,7 @@ class AddItem extends React.Component {
         </div>
       </div>
     );
-  }
+  
 }
 
 export default AddItem;

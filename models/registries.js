@@ -1,3 +1,5 @@
+// This allows users to have registries
+
 module.exports = function (sequelize, DataTypes) {
   var Registries = sequelize.define('registries', {
     registry: {
