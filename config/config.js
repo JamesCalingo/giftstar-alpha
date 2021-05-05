@@ -1,22 +1,22 @@
-require('dotenv').config()
+require("dotenv").config();
 
 module.exports = {
   development: {
-    username: 'root',
+    username: "root",
     password: process.env.password,
-    database: 'giftsinthegazebo',
-    host: '127.0.0.1',
-    dialect: 'mysql'
+    database: "giftsinthegazebo",
+    host: "127.0.0.1",
+    dialect: "mysql",
   },
   test: {
-    username: 'root',
+    username: "root",
     password: null,
-    database: 'database_test',
-    host: '127.0.0.1',
-    dialect: 'mysql'
+    database: "database_test",
+    host: "127.0.0.1",
+    dialect: "mysql",
   },
   production: {
-    use_env_variable: 'JAWSDB_URL',
-    dialect: 'mysql'
-  }
-}
+    use_env_variable: "JAWSDB_URL",
+    dialect: "mysql",
+  },
+};
