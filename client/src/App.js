@@ -16,7 +16,7 @@ import UserPage from "./pages/UserPage";
 
 function App() {
   return (
-    <Router>
+    <div>
       <Navbar />
       <>
         <HashRouter basename="/">
@@ -33,7 +33,7 @@ function App() {
           <Route exact path="/UserPage" component={UserPage} />
         </HashRouter>
       </>
-    </Router>
+    </div>
   );
 }
 
