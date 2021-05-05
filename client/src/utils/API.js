@@ -24,6 +24,10 @@ export const addItem = (productData) => {
   return axios.post("/api/products", productData);
 };
 
+export const deleteItem = (productData) => {
+  return axios.delete("/api/products", productData)
+}
+
 export const getMyRegistry = (productData) => {
   return axios.get("/api/products", productData);
 };

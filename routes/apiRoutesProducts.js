@@ -39,4 +39,17 @@ module.exports = function (app) {
         res.json(err);
       });
   });
+
+  app.delete("/api/products/:id", withAuth, function (req, res) {
+    req.body.productId = req.id;
+    db.products
+      .destroy({
+        where: { id: req.params.id },
+      })
+      .then((productData) => res.json(productData))
+      .catch((err) => {
+        console.log(err);
+        res.json(err);
+      });
+  });
 };

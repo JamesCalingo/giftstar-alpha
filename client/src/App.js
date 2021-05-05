@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { HashRouter, Route } from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Welcome from "./pages/Welcome";
@@ -19,7 +19,7 @@ function App() {
     <Router>
       <Navbar />
       <>
-        <Switch>
+        <HashRouter basename="/">
           <Route exact path="/" component={Welcome} />
           <Route exact path="/SignUp" component={SignUp} />
           <Route exact path="/Login" component={Login} />
@@ -31,7 +31,7 @@ function App() {
           <Route exact path="/Reset" component={Reset} />
           <Route exact path="/Success" component={Success} />
           <Route exact path="/UserPage" component={UserPage} />
-        </Switch>
+        </HashRouter>
       </>
     </Router>
   );
