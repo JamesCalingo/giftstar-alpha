@@ -35,11 +35,3 @@ export const claimProduct = productData => {
 export const findUser = userData => {
   return axios.get('api/users/public', userData)
 }
-
-// export default {
-//  createUser,
-//  loginUser,
-//  createRegistry,
-//  getMyData,
-//  addItem
-// };

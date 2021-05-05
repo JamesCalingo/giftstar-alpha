@@ -11,7 +11,6 @@ function AddItem() {
      toast.success("Item successfully added!", {
        position: toast.POSITION.BOTTOM_CENTER,
      });
-     window.location.reload(false)
    };
    const failure = () => {
      toast.error("An error occurred.", {
@@ -35,7 +34,7 @@ function AddItem() {
 
 
   // handleInputChange = (event) => {
-  //   // Getting the value and name of the input which triggered the change
+  //   // This would better simplify event changes by consolidating them into one function
   //   const { name, value } = event.target;
 
   //   // Updating the input's state
