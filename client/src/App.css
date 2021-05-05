@@ -1,4 +1,4 @@
-body{
+body {
   background: burlywood;
   font-family: 'Lato', sans-serif;
 }
@@ -7,24 +7,24 @@ h1 {
   font-weight: bold
 }
 
-.header{
+.header {
   text-align: center;
   background: white
 }
 
-.navbar{
+.navbar {
   background: whitesmoke
 }
 
-.jumbotron{
+.jumbotron {
   background-image: url("components/IMG_3307.JPG")
 }
 
-.logo{
+.logo {
   font-family: 'Gloria Hallelujah', cursive;
 }
 
-.signUpMessage{
+.signUpMessage {
   font-size: 18pt
 }
 

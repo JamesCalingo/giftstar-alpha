@@ -1,7 +1,7 @@
-import React, { useState } from "react"
+import React, { useState } from "react";
 
 function PublicListView() {
-  const items = useState([])
+  const items = useState([]);
 }
 
-export default PublicListView
+export default PublicListView;

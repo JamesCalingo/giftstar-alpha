@@ -18,9 +18,9 @@ function GiftList() {
     });
   }, [user, products]);
 
-  const claimProduct = () => {
-    toast("Thank You!!");
-  };
+  // const claimProduct = () => {
+  //   toast("Thank You!!");
+  // };
 
   return (
     <div className="container">
