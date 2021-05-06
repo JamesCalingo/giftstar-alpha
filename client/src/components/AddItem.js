@@ -6,12 +6,6 @@ import { addItem } from "../utils/API";
 function AddItem() {
   let [item, setItem] = useState("");
   let [link, setLink] = useState("");
-
-  const success = () => {
-    toast.success("Item successfully added!", {
-      position: toast.POSITION.BOTTOM_CENTER,
-    });
-  };
   const failure = () => {
     toast.error("An error occurred.", {
       position: toast.POSITION.BOTTOM_CENTER,
@@ -26,7 +20,7 @@ function AddItem() {
     })
       .then((data) => {
         console.log(data);
-        success();
+       window.location.reload(false)
       })
       .catch((err) => {
         console.log(err);

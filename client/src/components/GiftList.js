@@ -5,7 +5,7 @@ import { getMyData, getMyRegistry } from "../utils/API";
 import { toast, ToastContainer } from "react-toastify";
 
 const products = [];
-const users = ""
+const users = "";
 
 class GiftList extends React.Component {
   state = {
@@ -14,20 +14,16 @@ class GiftList extends React.Component {
   };
 
   componentDidMount() {
-    getMyData(users)
-    .then(({data: userData}) => {
-    getMyRegistry(products)
-    .then(({ data: productData }) => {
-      console.log(productData);
-      this.setState({
-        products: productData,
-        user: userData
+    getMyData(users).then(({ data: userData }) => {
+      getMyRegistry(products).then(({ data: productData }) => {
+        console.log(productData);
+        this.setState({
+          products: productData,
+          user: userData,
+        });
       });
     });
-  })
-}
-
-
+  }
 
   claimProduct = () => {
     toast("Thank You!!");
@@ -37,12 +33,12 @@ class GiftList extends React.Component {
     return (
       <div className="container">
         <ToastContainer />
-        <h1 className="text-center">{this.state.user ? this.state.user.firstName : "No account is logged in right now."} {this.state.user ? this.state.user.lastName + "'s Wishlist" : ""}</h1>
-        <div className="row">
-          <div className="col-md-4">
-            <AddItem />
-          </div>
-          <div className="col-md-8">
+        {this.state.user ? (
+          <div>
+            <h1 className="text-center">
+              {this.state.user.firstName} {this.state.user.lastName}'s list
+            </h1>
+
             <div className="card">
               <div className="card-header">
                 <h4>Items</h4>
@@ -64,7 +60,9 @@ class GiftList extends React.Component {
               </div>
             </div>
           </div>
-        </div>
+        ) : (
+          <h1>Loading</h1>
+        )}
       </div>
     );
   }

@@ -1,13 +1,13 @@
 import React from "react";
-import { HashRouter, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Welcome from "./pages/Welcome";
 import SignUp from "./pages/SignUp";
-import Login from "./components/Login";
+import Login from "./pages/Login";
 import CreateList from "./pages/CreateList";
 import UserSearch from "./pages/UserSearch";
-import Account from "./components/Account";
+import Account from "./pages/Account";
 import AddItem from "./components/AddItem";
 import GiftList from "./components/GiftList";
 import Reset from "./pages/Reset";
@@ -16,24 +16,24 @@ import UserPage from "./pages/UserPage";
 
 function App() {
   return (
-    <div>
+    <Router>
       <Navbar />
       <>
-        <HashRouter basename="/">
+        <Switch>
           <Route exact path="/" component={Welcome} />
-          <Route exact path="/SignUp" component={SignUp} />
-          <Route exact path="/Login" component={Login} />
-          <Route exact path="/CreateList" component={CreateList} />
-          <Route exact path="/UserSearch" component={UserSearch} />
-          <Route exact path="/Account" component={Account} />
-          <Route exact path="/AddItem" component={AddItem} />
-          <Route exact path="/GiftList" component={GiftList} />
-          <Route exact path="/Reset" component={Reset} />
-          <Route exact path="/Success" component={Success} />
-          <Route exact path="/UserPage" component={UserPage} />
-        </HashRouter>
+          <Route exact path="/signup" component={SignUp} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/createlist" component={CreateList} />
+          <Route exact path="/search" component={UserSearch} />
+          <Route exact path="/account" component={Account} />
+          <Route exact path="/additem" component={AddItem} />
+          <Route exact path="/giftlist" component={GiftList} />
+          <Route exact path="/reset" component={Reset} />
+          <Route exact path="/success" component={Success} />
+          <Route exact path="/userpage" component={UserPage} />
+        </Switch>
       </>
-    </div>
+    </Router>
   );
 }
 

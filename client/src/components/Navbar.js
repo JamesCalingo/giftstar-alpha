@@ -22,12 +22,17 @@ function Navbar() {
       <div className="collapse navbar-collapse">
         <ul className="navbar-nav justify-content-end">
           <li className="nav-item">
-            <NavLink to="/Login" className="btn">
+            <NavLink to="/login" className="btn">
               Log In
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink to="/UserPage" className="btn">
+            <NavLink to="/signup" className="btn">
+              Sign Up
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink to="/userpage" className="btn">
               Your Account
             </NavLink>
           </li>
