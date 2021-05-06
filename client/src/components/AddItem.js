@@ -20,7 +20,6 @@ function AddItem() {
     })
       .then((data) => {
         console.log(data);
-       window.location.reload(false)
       })
       .catch((err) => {
         console.log(err);
