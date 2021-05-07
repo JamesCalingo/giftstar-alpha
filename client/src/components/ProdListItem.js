@@ -15,7 +15,7 @@ function ProdListItem(props) {
         {props.link ? "purchase it here" : ""}
       </a>
       <br />
-      <button onClick={props.deleteItem} className="btn btn-danger mx-1">Delete from list</button>
+      {/* <button onClick={props.deleteItem} className="btn btn-danger mx-1">Delete from list</button> */}
     </li>
   );
 }
