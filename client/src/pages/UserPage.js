@@ -12,7 +12,7 @@ function UserPage() {
     .then(data => {
       setUser(data)
     })
-  })
+  }, [])
 
   return (
     <div>
@@ -27,7 +27,10 @@ function UserPage() {
         </div>
       </div>
     </div>
-   : <div>Something's going on here...</div>}
+   : <div className="text-center">
+     <h1>Gimme a sec here...</h1>
+     <p>If nothing loads, check that you're logged in and try again.</p>
+     </div>}
    </div>);
 }
 

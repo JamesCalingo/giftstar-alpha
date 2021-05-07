@@ -16,7 +16,7 @@ function GiftList() {
         setLoading(false);
       });
     });
-  }, [user, products]);
+  }, [products]);
 
   const claimProduct = () => {
     toast("Thank You!!");

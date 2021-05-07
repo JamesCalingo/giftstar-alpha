@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { addItem } from "../utils/API";
@@ -11,6 +11,10 @@ function AddItem() {
       position: toast.POSITION.BOTTOM_CENTER,
     });
   };
+
+  // useEffect(()=> {
+  //   handleSubmit()
+  // })
 
   function handleSubmit(event) {
     event.preventDefault();
