@@ -21,7 +21,7 @@ module.exports = function (sequelize, DataTypes) {
   });
 
   Products.associate = function (models) {
-    Products.belongsTo(models.users);
+    Products.belongsTo(models.lists);
   };
   return Products;
 };
