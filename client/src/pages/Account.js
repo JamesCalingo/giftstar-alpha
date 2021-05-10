@@ -1,41 +1,26 @@
 import React from "react";
-import { getMyData, showMyRegistries } from "../utils/API";
+import { getMyData, showMyLists } from "../utils/API";
 import { NavLink } from "react-router-dom";
 
-const users = "";
+function Account() {
+  const [user, setUser] = useState({});
+  const [lists, setLists] = useState([]);
 
-// WHAT IS BEING DONE WITH THIS PAGE:
-// An API call is made to the ENTIRE database. It SHOULD bring back the user data of the currently logged in user as well as any registries tied to their user ID. What I need to figure out is how to import that data (it will probably all be in state) and then rendering it.
-
-class Account extends React.Component {
-  state = {
-    users: "",
-    registries: [],
-  };
-
-  componentDidMount() {
-    getMyData(users).then(({ data: userData }) => {
-      console.log(userData);
-      showMyRegistries().then(({ data: registryData }) => {
-        console.log(registryData);
-        this.setState({
-          user: userData,
-          registries: registryData,
-        });
+  useEffect(() => {
+    getMyData(user).then(({ data: userData }) => {
+      showMyLists(lists).then(({ data: listsData }) => {
+        setUser(userData);
+        setLists(listsData);
       });
     });
-  }
+  }, [lists]);
 
-  render() {
-    return (
-      <div>
+  return (
+    <div>
+      {this.state.user ? (
         <div className="container">
           <h1 className="text-center">
-            {" "}
-            {this.state.user
-              ? this.state.user.firstName
-              : "No account is logged in right now."}{" "}
-            {this.state.user ? this.state.user.lastName : ""}
+            {this.state.user.firstName} {this.state.user.lastName}
           </h1>
 
           <div className="card">
@@ -66,9 +51,11 @@ class Account extends React.Component {
             </div>
           </div>
         </div>
-      </div>
-    );
-  }
+      ) : (
+        <h1>No account is signed in right now</h1>
+      )}
+    </div>
+  );
 }
 
 export default Account;

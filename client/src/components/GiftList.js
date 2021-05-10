@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 import ProdListItem from "./ProdListItem";
-import { getMyData, getMyRegistry } from "../utils/API";
+import { getMyData, getSpecificList } from "../utils/API";
 import { toast, ToastContainer } from "react-toastify";
 
 function GiftList() {
   const [user, setUser] = useState({});
-  const [products, setProducts] = useState([]);
+  const [list, setList] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     getMyData(user).then(({ data: userData }) => {
-      getMyRegistry(products).then(({ data: productData }) => {
+      getMyList(list).then(({ data: productData }) => {
         setUser(userData);
         setProducts(productData);
         setLoading(false);

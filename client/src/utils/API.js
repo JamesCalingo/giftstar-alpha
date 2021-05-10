@@ -12,12 +12,16 @@ export const getMyData = (userData) => {
   return axios.get("/api/users", userData);
 };
 
-export const createRegistry = (registryData) => {
-  return axios.post("/api/registries", registryData);
+export const createList = (listData) => {
+  return axios.post("/api/lists", listData);
 };
 
-export const showMyRegistries = (registryData) => {
-  return axios.get("/api/registries", registryData);
+export const showMyLists = (listData) => {
+  return axios.get("/api/lists", listData);
+};
+
+export const getSpecificList = (productData) => {
+  return axios.get("/api/products", productData);
 };
 
 export const addItem = (productData) => {
@@ -27,10 +31,6 @@ export const addItem = (productData) => {
 export const deleteItem = (productData) => {
   return axios.delete("/api/products", productData)
 }
-
-export const getMyRegistry = (productData) => {
-  return axios.get("/api/products", productData);
-};
 
 export const claimProduct = (productData) => {
   return axios.put("/api/products", productData);

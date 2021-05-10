@@ -5,31 +5,19 @@ import withReactContent from "sweetalert2-react-content";
 
 const MySwal = withReactContent(Swal);
 
-class UserSearch extends React.Component {
-  state = {
-    user: "",
-  };
+function UserSearch() {
+ const [user, setUser] = useState({})
 
-  handleInputChange = (event) => {
-    // Getting the value and name of the input which triggered the change
-    const { name, value } = event.target;
-
-    // Updating the input's state
-    this.setState({
-      [name]: value,
-    });
-  };
-
-  handleSearch = (event) => {
+  const handleSearch = (event) => {
     // alert("This is currently under construction right now, but you can expect to have this active soon!")
     event.preventDefault();
-    console.log(this.state.user);
+    console.log(user);
     findUser({
-      user: this.state.user,
+      user: user,
     })
       .then((data) => {
         console.log(data);
-        this.setState({
+        setUser({
           user: data,
         });
       })
@@ -44,17 +32,17 @@ class UserSearch extends React.Component {
       });
   };
 
-  render() {
+
     return (
       <div className="container">
-        <h1>Search for a user/list/registry here!</h1>
+        <h1>Search for a user/their lists here!</h1>
         <div className="card">
           <form>
             <div className="form-group">
               <label htmlFor="userName">User</label>
               <input
-                value={this.state.user}
-                onChange={this.handleInputChange}
+                value={user}
+                onChange={event => setUser(event.target.value)}
                 name="user"
                 type="input"
                 className="form-control form-control-lg"
@@ -73,10 +61,8 @@ class UserSearch extends React.Component {
             </button>
           </form>
         </div>
-        {/* <div className="card">
-        {this.state.user ? this.state.user : ""}</div> */}
-      </div>
+      </div> 
     );
-  }
+  
 }
 export default UserSearch;
