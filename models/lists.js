@@ -1,7 +1,7 @@
-// This allows users to have multiple registries. Currently, products are being assigned to users, but in the future, I envision having users able to have multiple registries.
+// This allows users to have multiple Lists. Currently, products are being assigned to users, but in the future, I envision having users able to have multiple Lists.
 
 module.exports = function (sequelize, DataTypes) {
-  var Registries = sequelize.define("registries", {
+  var Lists = sequelize.define("Lists", {
     registry: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -22,9 +22,9 @@ module.exports = function (sequelize, DataTypes) {
     },
   });
 
-  Registries.associate = function (models) {
-    Registries.belongsTo(models.users);
-    Registries.hasMany(models.products);
+  Lists.associate = function (models) {
+    Lists.belongsTo(models.users);
+    Lists.hasMany(models.products);
   };
-  return Registries;
+  return Lists;
 };
