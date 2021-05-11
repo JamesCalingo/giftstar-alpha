@@ -3,23 +3,23 @@ var db = require("../models");
 const withAuth = require("../middleware/authentication");
 
 module.exports = function (app) {
-  app.get("/api/registries", withAuth, function (req, res) {
+  app.get("/api/lists", withAuth, function (req, res) {
     req.body.userId = req.id;
-    db.registries
+    db.lists
       .findAll({
         where: {
           userId: req.id,
         },
       })
-      .then(function (dbRegistries) {
-        res.json(dbRegistries);
+      .then(function (dbLists) {
+        res.json(dbLists);
       });
   });
 
-  app.post("/api/registries", withAuth, function (req, res) {
+  app.post("/api/lists", withAuth, function (req, res) {
     req.body.userId = req.id;
-    db.registries.create(req.body).then(function (dbRegistries) {
-      res.json(dbRegistries);
+    db.lists.create(req.body).then(function (dbLists) {
+      res.json(dbLists);
     });
   });
 };

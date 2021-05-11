@@ -10,13 +10,13 @@ function GiftList() {
 
   useEffect(() => {
     getMyData(user).then(({ data: userData }) => {
-      getMyList(list).then(({ data: productData }) => {
+      getSpecificList(list).then(({ data: productData }) => {
         setUser(userData);
-        setProducts(productData);
+        setList(productData);
         setLoading(false);
       });
     });
-  }, [products]);
+  }, [list]);
 
   const claimProduct = () => {
     toast("Thank You!!");
@@ -39,7 +39,7 @@ function GiftList() {
             <div className="card-content myList">
               <div className="lines"></div>
               <ul className="list-unstyled list">
-                {products.map((product) => {
+                {list.map((product) => {
                   return (
                     <ProdListItem
                       key={product.id}

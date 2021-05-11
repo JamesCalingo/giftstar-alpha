@@ -12,7 +12,7 @@ export const getMyData = (userData) => {
   return axios.get("/api/users", userData);
 };
 
-export const createList = (listData) => {
+export const createNewList = (listData) => {
   return axios.post("/api/lists", listData);
 };
 

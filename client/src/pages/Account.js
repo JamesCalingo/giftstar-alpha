@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { getMyData, showMyLists } from "../utils/API";
 import { NavLink } from "react-router-dom";
 
@@ -8,31 +8,31 @@ function Account() {
 
   useEffect(() => {
     getMyData(user).then(({ data: userData }) => {
-      showMyLists(lists).then(({ data: listsData }) => {
+      showMyLists(lists).then(({ data: listData }) => {
         setUser(userData);
-        setLists(listsData);
+        setLists(listData);
       });
     });
-  }, [lists]);
+  }, [user, lists]);
 
   return (
     <div>
-      {this.state.user ? (
+      {user ? (
         <div className="container">
           <h1 className="text-center">
-            {this.state.user.firstName} {this.state.user.lastName}
+            {user.firstName} {user.lastName}
           </h1>
 
           <div className="card">
-            <div className="card-header">My Registries</div>
+            <div className="card-header">My Gift Lists</div>
             <div className="card-content">
               <ul>
-                {this.state.registries.map((regData) => {
+                {lists.map((list) => {
                   return (
-                    <li className="border-bottom" key={regData.id}>
-                      <strong>{regData.registry}</strong> | {regData.type}{" "}
+                    <li className="border-bottom" key={lists.id}>
+                      <strong>{lists.registry}</strong>
                       <br />
-                      <NavLink to="/RegistryList" className="btn btn-info ml-3">
+                      <NavLink to="/UserPage" className="btn btn-info ml-3">
                         View/Update
                       </NavLink>
                     </li>
@@ -40,7 +40,7 @@ function Account() {
                 })}
               </ul>
               <NavLink to="/CreateList" className="btn btn-primary mx-2">
-                {this.state.user ? (
+                {user ? (
                   "Create New Registry"
                 ) : (
                   <NavLink to="Login" class="text-light">
