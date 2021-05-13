@@ -3,15 +3,15 @@ import { createNewList } from "../utils/API";
 import { toast, ToastContainer } from "react-toastify";
 
 function CreateList() {
-  const [list, setList] = useState("");
-  const [type, setType] = useState("");
+  const [listName, setListName] = useState("");
   const [description, setDescription] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    createNewList({ list, type, description })
+    console.log(listName, description)
+    createNewList({ listName, description })
       .then(({ data }) => {
-        toast.success(`succesfully created ${list} for ${type}.`, {
+        toast.success(`succesfully created ${listName}.`, {
           position: toast.POSITION.BOTTOM_CENTER,
         });
         console.log(data);
@@ -28,7 +28,7 @@ function CreateList() {
     <>
       <div>
         <ToastContainer />
-        <h1 className="text-center page-title">Create a new List/list!</h1>
+        <h1 className="text-center page-title">Create a new List!</h1>
         <div className="container">
           <div className="card">
             <div className="card-body">
@@ -39,8 +39,8 @@ function CreateList() {
                     type="email"
                     className="form-control form-control-lg"
                     id="listName"
-                    value={list}
-                    onChange={(e) => setList(e.target.value)}
+                    value={listName}
+                    onChange={(e) => setListName(e.target.value)}
                   />
                 </div>
 
