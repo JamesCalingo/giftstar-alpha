@@ -20,7 +20,7 @@ if (process.env.NODE_ENV === "production") {
 // =============================================================
 require("./routes/apiRoutesProducts")(app);
 require("./routes/apiRoutesUsers")(app);
-require("./routes/apiRoutesRegistries")(app);
+require("./routes/apiRoutesLists")(app);
 require("./routes/apiRoutesPublic")(app);
 require("./routes/htmlRoutes")(app);
 

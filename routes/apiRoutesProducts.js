@@ -6,7 +6,7 @@ const withAuth = require("../middleware/authentication");
 // =============================================================
 module.exports = function (app) {
   app.get("/api/products", withAuth, function (req, res) {
-    req.body.userId = req.id;
+    req.body.listId = req.id;
     db.products
       .findAll({
         where: {
@@ -20,7 +20,7 @@ module.exports = function (app) {
 
   // POST route for saving a new product
   app.post("/api/products", withAuth, function (req, res) {
-    req.body.userId = req.id;
+    req.body.listId = req.id;
     db.products.create(req.body).then(function (dbProducts) {
       res.json(dbProducts);
     });

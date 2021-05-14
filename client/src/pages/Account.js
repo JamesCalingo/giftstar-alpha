@@ -8,12 +8,14 @@ function Account() {
 
   useEffect(() => {
     getMyData(user).then(({ data: userData }) => {
+      console.log(userData)
       showMyLists(lists).then(({ data: listData }) => {
+        console.log(listData)
         setUser(userData);
         setLists(listData);
       });
     });
-  }, [user, lists]);
+  }, []);
 
   return (
     <div>
@@ -29,10 +31,10 @@ function Account() {
               <ul>
                 {lists.map((list) => {
                   return (
-                    <li className="border-bottom" key={lists.id}>
-                      <strong>{lists.registry}</strong>
-                      <br />
-                      <NavLink to="/UserPage" className="btn btn-info ml-3">
+                    <li className="border-bottom list-unstyled" key={list.id}>
+                      <h3>{list.listName}</h3>
+                  
+                      <NavLink to="/UserPage" className="btn btn-info ">
                         View/Update
                       </NavLink>
                     </li>
