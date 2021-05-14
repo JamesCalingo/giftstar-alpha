@@ -3,7 +3,7 @@ var db = require("../models");
 const withAuth = require("../middleware/authentication");
 
 module.exports = function (app) {
-  app.get("/api/lists", withAuth, function (req, res) {
+  app.get("/lists", withAuth, function (req, res) {
     req.body.userId = req.id;
     db.lists
       .findAll({
@@ -16,7 +16,7 @@ module.exports = function (app) {
       });
   });
 
-  app.post("/api/lists", withAuth, function (req, res) {
+  app.post("/lists", withAuth, function (req, res) {
     req.body.userId = req.id;
     db.lists.create(req.body).then(function (dbLists) {
       res.json(dbLists);
