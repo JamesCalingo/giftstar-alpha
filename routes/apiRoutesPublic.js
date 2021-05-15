@@ -22,8 +22,21 @@ module.exports = function (app) {
         //   userId: req.id,
         // },
       })
-      .then(function (listsData) {
-        res.json(listsData);
+      .then(function (dbLists) {
+        res.json(dbLists);
       });
   });
-};
+  app.get("/public/products", function (req, res) {
+    req.body.listId = req.id;
+    db.products
+      .findAll({
+        // where: {
+        //   userId: req.id,
+        // },
+      })
+      .then(function (dbProducts) {
+        res.json(dbProducts);
+      });
+  });
+  };
+
