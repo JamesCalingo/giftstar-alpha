@@ -1,22 +1,22 @@
 import React, { useState, useEffect } from "react";
 import ProdListItem from "./ProdListItem";
-import { getMyData, getMyRegistry } from "../utils/API";
+import { getMyData, getSpecificList } from "../utils/API";
 import { toast, ToastContainer } from "react-toastify";
 
 function GiftList() {
   const [user, setUser] = useState({});
-  const [products, setProducts] = useState([]);
+  const [list, setList] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     getMyData(user).then(({ data: userData }) => {
-      getMyRegistry(products).then(({ data: productData }) => {
+      getSpecificList(list).then(({ data: productData }) => {
         setUser(userData);
-        setProducts(productData);
+        setList(productData);
         setLoading(false);
       });
     });
-  }, [products]);
+  }, [list]);
 
   const claimProduct = () => {
     toast("Thank You!!");
@@ -39,7 +39,7 @@ function GiftList() {
             <div className="card-content myList">
               <div className="lines"></div>
               <ul className="list-unstyled list">
-                {products.map((product) => {
+                {list.map((product) => {
                   return (
                     <ProdListItem
                       key={product.id}

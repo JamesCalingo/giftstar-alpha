@@ -6,11 +6,11 @@ const withAuth = require("../middleware/authentication");
 // =============================================================
 module.exports = function (app) {
   app.get("/api/products", withAuth, function (req, res) {
-    req.body.userId = req.id;
+    req.body.listId = req.id;
     db.products
       .findAll({
         where: {
-          userId: req.id,
+          listId: req.id,
         },
       })
       .then(function (dbProducts) {
@@ -19,15 +19,15 @@ module.exports = function (app) {
   });
 
   // POST route for saving a new product
-  app.post("/api/products", withAuth, function (req, res) {
-    req.body.userId = req.id;
+  app.post("/products", withAuth, function (req, res) {
+    req.body.listId = req.id;
     db.products.create(req.body).then(function (dbProducts) {
       res.json(dbProducts);
     });
   });
 
   // UPDATE route to set "purchased" to true
-  app.put("/api/products", withAuth, function (req, res) {
+  app.put("/products/:id", withAuth, function (req, res) {
     req.body.productId = req.id;
     db.products
       .update({
@@ -40,7 +40,7 @@ module.exports = function (app) {
       });
   });
 
-  app.delete("/api/products/:id", withAuth, function (req, res) {
+  app.delete("/products/:id", withAuth, function (req, res) {
     req.body.productId = req.id;
     db.products
       .destroy({

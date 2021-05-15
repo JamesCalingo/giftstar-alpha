@@ -2,9 +2,9 @@
 const jwt = require("jsonwebtoken");
 const { users: Users } = require("../models");
 const handle = require("../utils/promise-handler");
+require ("dotenv").config
 
-// set up secret for JWT (json web token)...typically you'd hide this in a .env
-const secret = "donttellnobody";
+const secret = process.env.secret;
 
 // create function to register/create a new user
 // used when the POST route '/api/user/register' is hit

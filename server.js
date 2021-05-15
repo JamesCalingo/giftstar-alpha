@@ -17,17 +17,14 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Routes
-// =============================================================
 require("./routes/apiRoutesProducts")(app);
 require("./routes/apiRoutesUsers")(app);
-require("./routes/apiRoutesRegistries")(app);
+require("./routes/apiRoutesLists")(app);
 require("./routes/apiRoutesPublic")(app);
 require("./routes/htmlRoutes")(app);
 
 // Syncing our sequelize models and then starting our Express app
-// =============================================================
-
-db.sequelize.sync({ force: true }).then(function () {
+db.sequelize.sync({ force: false }).then(function () {
   app.listen(PORT, function () {
     console.log("App listening on PORT " + PORT);
   });

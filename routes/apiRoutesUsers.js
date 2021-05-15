@@ -8,9 +8,9 @@ const {
 module.exports = (app) => {
   // USER ROUTES
   // API Route to see users
-  app.get("/api/users", withAuth, getUserProfile);
+  app.get("/users", withAuth, getUserProfile);
   // API Route to create new user (pre password)
-  app.post("/api/users/register", register);
+  app.post("/users/register", register);
   // login user to system
-  app.post("/api/users/login", login);
+  app.post("/users/login", login);
 };

@@ -1,53 +1,40 @@
-import React from "react";
-import { getMyData, showMyRegistries } from "../utils/API";
+import React, {useState, useEffect} from "react";
+import { getMyData, showMyLists } from "../utils/API";
 import { NavLink } from "react-router-dom";
 
-const users = "";
+function Account() {
+  const [user, setUser] = useState({});
+  const [lists, setLists] = useState([]);
 
-// WHAT IS BEING DONE WITH THIS PAGE:
-// An API call is made to the ENTIRE database. It SHOULD bring back the user data of the currently logged in user as well as any registries tied to their user ID. What I need to figure out is how to import that data (it will probably all be in state) and then rendering it.
-
-class Account extends React.Component {
-  state = {
-    users: "",
-    registries: [],
-  };
-
-  componentDidMount() {
-    getMyData(users).then(({ data: userData }) => {
-      console.log(userData);
-      showMyRegistries().then(({ data: registryData }) => {
-        console.log(registryData);
-        this.setState({
-          user: userData,
-          registries: registryData,
-        });
+  useEffect(() => {
+    getMyData(user).then(({ data: userData }) => {
+      console.log(userData)
+      showMyLists(lists).then(({ data: listData }) => {
+        console.log(listData)
+        setUser(userData);
+        setLists(listData);
       });
     });
-  }
+  }, []);
 
-  render() {
-    return (
-      <div>
+  return (
+    <div>
+      {user ? (
         <div className="container">
           <h1 className="text-center">
-            {" "}
-            {this.state.user
-              ? this.state.user.firstName
-              : "No account is logged in right now."}{" "}
-            {this.state.user ? this.state.user.lastName : ""}
+            {user.firstName} {user.lastName}
           </h1>
 
           <div className="card">
-            <div className="card-header">My Registries</div>
+            <div className="card-header">My Gift Lists</div>
             <div className="card-content">
               <ul>
-                {this.state.registries.map((regData) => {
+                {lists.map((list) => {
                   return (
-                    <li className="border-bottom" key={regData.id}>
-                      <strong>{regData.registry}</strong> | {regData.type}{" "}
-                      <br />
-                      <NavLink to="/RegistryList" className="btn btn-info ml-3">
+                    <li className="border-bottom list-unstyled" key={list.id}>
+                      <h3>{list.listName}</h3>
+                  
+                      <NavLink to="/UserPage" className="btn btn-info ">
                         View/Update
                       </NavLink>
                     </li>
@@ -55,7 +42,7 @@ class Account extends React.Component {
                 })}
               </ul>
               <NavLink to="/CreateList" className="btn btn-primary mx-2">
-                {this.state.user ? (
+                {user ? (
                   "Create New Registry"
                 ) : (
                   <NavLink to="Login" class="text-light">
@@ -66,9 +53,11 @@ class Account extends React.Component {
             </div>
           </div>
         </div>
-      </div>
-    );
-  }
+      ) : (
+        <h1>No account is signed in right now</h1>
+      )}
+    </div>
+  );
 }
 
 export default Account;

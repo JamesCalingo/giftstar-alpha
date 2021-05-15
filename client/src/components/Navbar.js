@@ -32,7 +32,7 @@ function Navbar() {
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink to="/userpage" className="btn">
+            <NavLink to="/account" className="btn">
               Your Account
             </NavLink>
           </li>

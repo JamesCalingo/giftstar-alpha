@@ -1,18 +1,16 @@
 // This allows users to have multiple Lists. Currently, products are being assigned to users, but in the future, I envision having users able to have multiple Lists.
 
 module.exports = function (sequelize, DataTypes) {
-  var Lists = sequelize.define("Lists", {
-    registry: {
+
+  var Lists = sequelize.define("lists", {
+    listName: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
         len: [1],
       },
     },
-    type: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
+
     description: {
       type: DataTypes.STRING,
       allowNull: false,

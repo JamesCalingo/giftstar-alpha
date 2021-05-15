@@ -10,15 +10,15 @@ module.exports = function (app) {
     res.sendFile(path.join(__dirname, "../public/signup.html"));
   });
 
-  app.get("/findRegistry", function (req, res) {
-    res.sendFile(path.join(__dirname, "../public/findRegistry.html"));
+  app.get("/search", function (req, res) {
+    res.sendFile(path.join(__dirname, "../public/search.html"));
   });
 
   app.get("/login", function (req, res) {
-    res.sendFile(path.join(__dirname, "../public/registryLogin.html"));
+    res.sendFile(path.join(__dirname, "../public/login.html"));
   });
 
   app.get("/additems", function (req, res) {
-    res.sendFile(path.join(__dirname, "../public/addItems.html"));
+    res.sendFile(path.join(__dirname, "../public/additems.html"));
   });
 };
