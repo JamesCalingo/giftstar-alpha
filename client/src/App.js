@@ -6,7 +6,7 @@ import Welcome from "./pages/Welcome";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
 import CreateList from "./pages/CreateList";
-import UserSearch from "./pages/UserSearch";
+import Search from "./pages/Search";
 import Account from "./pages/Account";
 import AddItem from "./components/AddItem";
 import GiftList from "./components/GiftList";
@@ -24,7 +24,7 @@ function App() {
           <Route exact path="/signup" component={SignUp} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/createlist" component={CreateList} />
-          <Route exact path="/search" component={UserSearch} />
+          <Route exact path="/search" component={Search} />
           <Route exact path="/account" component={Account} />
           <Route exact path="/additem" component={AddItem} />
           <Route exact path="/giftlist" component={GiftList} />
