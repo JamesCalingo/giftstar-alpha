@@ -3,7 +3,7 @@ import AddItem from "../components/AddItem";
 import GiftList from "../components/GiftList";
 import { getMyData } from "../utils/API"
 
-function UserPage() {
+function UserListPage() {
 
   const [user, setUser] = useState({})
 
@@ -34,4 +34,4 @@ function UserPage() {
    </div>);
 }
 
-export default UserPage;
+export default UserListPage;

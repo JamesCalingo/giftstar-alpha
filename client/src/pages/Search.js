@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { findlists } from "../utils/API";
+import { findLists } from "../utils/API";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 
@@ -9,10 +9,9 @@ function Search() {
   const [lists, setLists] = useState([]);
 
   useEffect(() => {
-    findlists(lists)
-    .then(({data: listData}) => {
-      console.log(listData)
-      setlists(listData);
+    findLists(lists).then(({ data: listData }) => {
+      console.log(listData);
+      setLists(listData);
     });
   }, []);
 
@@ -20,12 +19,12 @@ function Search() {
     // alert("This is currently under construction right now, but you can expect to have this active soon!")
     event.preventDefault();
     console.log(lists);
-    findlists({
+    findLists({
       user: lists,
     })
       .then((data) => {
         console.log(data);
-        setlists({
+        setLists({
           lists: data,
         });
       })
@@ -41,19 +40,13 @@ function Search() {
 
   return (
     <div className="container">
-      <h1>
-        {lists.map((list) => {
-          return <h1>{list.listName} </h1>;
-        })}
-      </h1>
       <h1>Search for a user/their lists here!</h1>
       <div className="card">
         <form>
           <div className="form-group">
             <label htmlFor="userName">User</label>
             <input
-              value={lists}
-              onChange={(event) => setlists(event.target.value)}
+              value=""
               name="user"
               type="input"
               className="form-control form-control-lg"
@@ -67,6 +60,17 @@ function Search() {
             Submit
           </button>
         </form>
+     
+          {lists.map((list) => {
+            return (
+              <div className="border-bottom">
+                <h1>{list.listName}</h1>
+                <h3>by {list.userId}</h3>
+                <p>{list.description}</p>
+              </div>
+            );
+          })}
+
       </div>
     </div>
   );

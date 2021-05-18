@@ -12,7 +12,7 @@ import AddItem from "./components/AddItem";
 import GiftList from "./components/GiftList";
 import Reset from "./pages/Reset";
 import Success from "./pages/Success";
-import UserPage from "./pages/UserPage";
+import UserListPage from "./pages/UserListPage";
 
 function App() {
   return (
@@ -30,7 +30,7 @@ function App() {
           <Route exact path="/giftlist" component={GiftList} />
           <Route exact path="/reset" component={Reset} />
           <Route exact path="/success" component={Success} />
-          <Route exact path="/userpage" component={UserPage} />
+          <Route exact path="/userpage" component={UserListPage} />
         </Switch>
       </>
     </Router>

@@ -20,9 +20,13 @@ export const showMyLists = (listData) => {
   return axios.get("/lists", listData);
 };
 
-export const getSpecificList = (productData) => {
-  return axios.get("/products", productData);
+export const getSpecificList = (listData) => {
+  return axios.get("/lists", listData);
 };
+
+export const getProducts = (productData) => {
+  return axios.get("/products/:id", productData)
+}
 
 export const addItem = (productData) => {
   return axios.post("/products", productData);
@@ -36,6 +40,6 @@ export const claimProduct = (productData) => {
   return axios.put("/products", productData);
 };
 
-export const findUsers = (userData) => {
-  return axios.get("public/users", userData);
+export const findLists = (listData) => {
+  return axios.get("public/lists", listData);
 };
