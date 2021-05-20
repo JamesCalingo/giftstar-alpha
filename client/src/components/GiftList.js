@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ProdListItem from "./ProdListItem";
-import { getMyData, getSpecificList } from "../utils/API";
+import { getMyData, getProducts } from "../utils/API";
 import { toast, ToastContainer } from "react-toastify";
 
 function GiftList() {
@@ -10,13 +10,18 @@ function GiftList() {
 
   useEffect(() => {
     getMyData(user).then(({ data: userData }) => {
-      getSpecificList(list).then(({ data: productData }) => {
+      getProducts(list).then(({ data: productData }) => {
         setUser(userData);
         setList(productData);
         setLoading(false);
+        console.log(userData, productData)
+      }).catch(err => {
+        console.log(err)
       });
+    }).catch(err => {
+      console.log(err)
     });
-  }, [list]);
+  }, []);
 
   const claimProduct = () => {
     toast("Thank You!!");
@@ -30,7 +35,7 @@ function GiftList() {
       ) : (
         <div>
           <h1 className="text-center">
-            {user.firstName} {user.lastName}'s list
+           {list.title}
           </h1>
           <div className="card">
             <div className="card-header">

@@ -18,7 +18,6 @@ module.exports = function (app) {
       });
   });
 
-  // POST route for saving a new product
   app.post("/products", withAuth, function (req, res) {
     req.body.listId = req.id;
     db.products.create(req.body).then(function (dbProducts) {
