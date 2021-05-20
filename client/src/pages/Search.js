@@ -41,8 +41,11 @@ function Search() {
   return (
     <div className="container">
       <h1>Search for a user/their lists here!</h1>
-      <p>This is currently under construction, but you can see what type of things this will be used for!</p>
-      <div className="card">
+      <p>
+        This is currently under construction, but you can see what type of
+        things this will be used for!
+      </p>
+      <div className="card px-2 my-3">
         {/* <form>
           <div className="form-group">
             <label htmlFor="userName">User</label>
@@ -77,6 +80,7 @@ function Search() {
           </div>
         )}
       </div>
+      <a href="/" className="mb-3 plain-text-link">Return home</a>
     </div>
   );
 }

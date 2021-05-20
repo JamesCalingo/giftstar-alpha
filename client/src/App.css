@@ -28,8 +28,6 @@ h1 {
   font-size: 18pt
 }
 
-
-
 .list li {
   font-size: 18pt;
   list-style: none;
@@ -42,4 +40,9 @@ h1 {
 
 li a {
   text-indent: 0
+}
+
+.plain-text-link {
+  font-size: 18pt;
+  text-align:center;
 }
