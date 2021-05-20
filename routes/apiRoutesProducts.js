@@ -5,7 +5,7 @@ const withAuth = require("../middleware/authentication");
 // Routes
 // =============================================================
 module.exports = function (app) {
-  app.get("/api/products", withAuth, function (req, res) {
+  app.get("/products", withAuth, function (req, res) {
     req.body.listId = req.id;
     db.products
       .findAll({

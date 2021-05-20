@@ -21,4 +21,8 @@ module.exports = function (app) {
   app.get("/additems", function (req, res) {
     res.sendFile(path.join(__dirname, "../public/additems.html"));
   });
+
+  app.get("/list/:id", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/list/:id.html"))
+  })
 };
