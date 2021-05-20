@@ -41,8 +41,9 @@ function Search() {
   return (
     <div className="container">
       <h1>Search for a user/their lists here!</h1>
+      <p>This is currently under construction, but you can see what type of things this will be used for!</p>
       <div className="card">
-        <form>
+        {/* <form>
           <div className="form-group">
             <label htmlFor="userName">User</label>
             <input
@@ -59,18 +60,22 @@ function Search() {
           <button type="submit" className="btn btn-primary">
             Submit
           </button>
-        </form>
-     
-          {lists.map((list) => {
-            return (
-              <div className="border-bottom">
-                <h1>{list.listName}</h1>
-                <h3>by {list.userId}</h3>
-                <p>{list.description}</p>
-              </div>
-            );
-          })}
-
+        </form> */}
+        {lists.length === 0 ? (
+          <h1>Loading...</h1>
+        ) : (
+          <div>
+            {lists.map((list) => {
+              return (
+                <div className="border-bottom" key={lists.id}>
+                  <h1>{list.listName}</h1>
+                  <h3>by {list.userId}</h3>
+                  <h4>{list.description}</h4>
+                </div>
+              );
+            })}
+          </div>
+        )}
       </div>
     </div>
   );

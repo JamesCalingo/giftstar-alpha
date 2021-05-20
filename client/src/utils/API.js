@@ -25,7 +25,7 @@ export const getSpecificList = (listData) => {
 };
 
 export const getProducts = (productData) => {
-  return axios.get("/products/:id", productData)
+  return axios.get("/products", productData)
 }
 
 export const addItem = (productData) => {

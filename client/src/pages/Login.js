@@ -22,7 +22,6 @@ function Login() {
 
   const handleLogin = (event) => {
     event.preventDefault();
-    console.log(email, password);
     loginUser({
       email: email,
       password: password,
@@ -35,16 +34,6 @@ function Login() {
         notify();
       });
   };
-
-  // handleInputChange = event => {
-  //   // Getting the value and name of the input which triggered the change
-  //   const { name, value } = event.target;
-
-  //   // Updating the input's state
-  //   this.setState({
-  //     [name]: value
-  //   });
-  // };
 
   return (
     <div>

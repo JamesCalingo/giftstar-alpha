@@ -21,9 +21,9 @@ function Welcome() {
                 <NavLink to="/Login" className="btn btn-primary mx-2">
                   Create/Edit List
                 </NavLink>
-                {/* <NavLink to="/UserSearch" className="btn btn-success mx-2">
-                  Find/View Another's List
-                </NavLink> */}
+                <NavLink to="/search" className="btn btn-success mx-2">
+                  Search for lists
+                </NavLink>
               </div>
             </div>
           </div>
