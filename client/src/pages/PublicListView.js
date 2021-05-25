@@ -1,7 +1,12 @@
 import React, { useState } from "react";
+import GiftList from "../components/GiftList"
 
 function PublicListView() {
-  const items = useState([]);
+return(
+  <div>
+    <GiftList />
+  </div>
+);
 }
 
 export default PublicListView;

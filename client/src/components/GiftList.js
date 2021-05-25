@@ -14,7 +14,6 @@ function GiftList() {
         setUser(userData);
         setList(productData);
         setLoading(false);
-        console.log(userData, productData)
       }).catch(err => {
         console.log(err)
       });
