@@ -52,13 +52,13 @@ module.exports = function (app) {
   });
 
 
-  app.get("/public/products/:id", function (req, res) {
+  app.get("/public/products/", function (req, res) {
     req.body.listId = req.id;
     db.products
       .findAll({
-        where: {
-          listId: req.id,
-        },
+        // where: {
+        //   listId: req.id,
+        // },
       })
       .then(function (dbProducts) {
         res.json(dbProducts);

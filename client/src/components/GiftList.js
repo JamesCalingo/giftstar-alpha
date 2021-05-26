@@ -20,7 +20,7 @@ function GiftList() {
     }).catch(err => {
       console.log(err)
     });
-  }, []);
+  }, [list]);
 
   const claimProduct = () => {
     toast("Thank You!!");

@@ -37,7 +37,7 @@ export const deleteItem = (productData) => {
 }
 
 export const claimProduct = (productData) => {
-  return axios.put("/products", productData);
+  return axios.put("public/products", productData);
 };
 
 export const findLists = (listData) => {
