@@ -8,11 +8,10 @@ import Login from "./pages/Login";
 import CreateList from "./pages/CreateList";
 import Search from "./pages/Search";
 import Account from "./pages/Account";
-import AddItem from "./components/AddItem";
-import GiftList from "./components/GiftList";
 import Reset from "./pages/Reset";
 import Success from "./pages/Success";
 import UserListPage from "./pages/UserListPage";
+import PublicListView from "./pages/PublicListView"
 
 function App() {
   return (
@@ -26,11 +25,10 @@ function App() {
           <Route exact path="/createlist" component={CreateList} />
           <Route exact path="/search" component={Search} />
           <Route exact path="/account" component={Account} />
-          <Route exact path="/additem" component={AddItem} />
-          <Route exact path="/giftlist" component={GiftList} />
           <Route exact path="/reset" component={Reset} />
           <Route exact path="/success" component={Success} />
           <Route exact path="/userpage" component={UserListPage} />
+          <Route exact path="/viewlist" component={PublicListView} />
         </Switch>
       </>
     </Router>

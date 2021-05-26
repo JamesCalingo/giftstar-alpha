@@ -14,14 +14,13 @@ function GiftList() {
         setUser(userData);
         setList(productData);
         setLoading(false);
-        console.log(userData, productData)
       }).catch(err => {
         console.log(err)
       });
     }).catch(err => {
       console.log(err)
     });
-  }, []);
+  }, [list]);
 
   const claimProduct = () => {
     toast("Thank You!!");

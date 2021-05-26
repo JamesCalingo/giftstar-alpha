@@ -5,15 +5,25 @@ module.exports = function (app) {
   app.get("/public/users", function (req, res) {
     req.body.userId = req.id;
     db.users
-      .findAll({
-        // where: {
-        //   userId: req.id,
-        // },
+      .findAll()
+      .then(function (dbUsers) {
+        res.json(dbUsers);
+      });
+  });
+
+  app.get("/public/users/:id", function (req, res) {
+    req.body.userId = req.id;
+    db.users
+      .findOne({
+        where: {
+          userId: req.id,
+        },
       })
       .then(function (dbUsers) {
         res.json(dbUsers);
       });
   });
+
 
   // Public List Routes
   app.get("/public/lists", function (req, res) {
@@ -42,12 +52,12 @@ module.exports = function (app) {
   });
 
 
-  app.get("/public/products", function (req, res) {
+  app.get("/public/products/", function (req, res) {
     req.body.listId = req.id;
     db.products
       .findAll({
         // where: {
-        //   userId: req.id,
+        //   listId: req.id,
         // },
       })
       .then(function (dbProducts) {

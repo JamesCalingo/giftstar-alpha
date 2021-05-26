@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { addItem } from "../utils/API";
@@ -6,15 +6,18 @@ import { addItem } from "../utils/API";
 function AddItem() {
   let [item, setItem] = useState("");
   let [link, setLink] = useState("");
+
   const failure = () => {
     toast.error("An error occurred.", {
       position: toast.POSITION.BOTTOM_CENTER,
     });
   };
 
-  // useEffect(()=> {
-  //   handleSubmit()
-  // })
+  const resetForm = () => {
+    const itemInput = document.querySelector("#itemInput")
+    const linkInput = document.querySelector("#linkInput")
+    console.log(itemInput)
+  }
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -24,9 +27,11 @@ function AddItem() {
     })
       .then((data) => {
         console.log(data);
+        resetForm()
+  
       })
       .catch((err) => {
-        console.log(err);
+        console.error(err);
         failure();
       });
   }

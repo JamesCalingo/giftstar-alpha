@@ -33,7 +33,7 @@ function Account() {
                   return (
                     <li className="border-bottom list-unstyled" key={list.id}>
                       <h3>{list.listName}</h3>
-                  
+                  <p>{list.description}</p>
                       <NavLink to="/UserPage" className="btn btn-info ">
                         View/Update
                       </NavLink>
