@@ -29,11 +29,7 @@ module.exports = function (app) {
   app.get("/public/lists", function (req, res) {
     req.body.listId = req.id;
     db.lists
-      .findAll({
-        // where: {
-        //   userId: req.id,
-        // },
-      })
+      .findAll()
       .then(function (dbLists) {
         res.json(dbLists);
       });
@@ -51,18 +47,26 @@ module.exports = function (app) {
       });
   });
 
-
+// Public product routes
   app.get("/public/products/", function (req, res) {
     req.body.listId = req.id;
     db.products
+      .findAll()
+      .then(function (dbProducts) {
+        res.json(dbProducts);
+      });
+  });
+
+  app.get("/public/products/:id", function (req, res) {
+    req.body.productId = req.id;
+    db.products
       .findAll({
-        // where: {
-        //   listId: req.id,
-        // },
+        where: {
+          productId: req.id,
+        },
       })
       .then(function (dbProducts) {
         res.json(dbProducts);
       });
   });
   };
-

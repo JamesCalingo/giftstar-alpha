@@ -26,7 +26,7 @@ module.exports = function (app) {
   });
 
   // UPDATE route to set "purchased" to true
-  app.put("/products/:id", withAuth, function (req, res) {
+  app.put("/products/:id", function (req, res) {
     req.body.productId = req.id;
     db.products
       .update({
