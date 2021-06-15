@@ -2,7 +2,7 @@ var db = require("../models");
 
 module.exports = function (app) {
   // Public User Routes
-  app.get("/public/users", function (req, res) {
+  app.get("/view/users", function (req, res) {
     req.body.userId = req.id;
     db.users
       .findAll()
@@ -11,7 +11,7 @@ module.exports = function (app) {
       });
   });
 
-  app.get("/public/users/:id", function (req, res) {
+  app.get("/view/users/:id", function (req, res) {
     req.body.userId = req.id;
     db.users
       .findOne({
@@ -26,7 +26,7 @@ module.exports = function (app) {
 
 
   // Public List Routes
-  app.get("/public/lists", function (req, res) {
+  app.get("/view/lists", function (req, res) {
     req.body.listId = req.id;
     db.lists
       .findAll()
@@ -34,7 +34,7 @@ module.exports = function (app) {
         res.json(dbLists);
       });
   });
-  app.get("public/lists/:id", function (req, res) {
+  app.get("view/lists/:id", function (req, res) {
     req.body.listId = req.id;
     db.lists
       .findOne({
@@ -48,7 +48,7 @@ module.exports = function (app) {
   });
 
 // Public product routes
-  app.get("/public/products/", function (req, res) {
+  app.get("/view/products/", function (req, res) {
     req.body.listId = req.id;
     db.products
       .findAll()
@@ -57,7 +57,7 @@ module.exports = function (app) {
       });
   });
 
-  app.get("/public/products/:id", function (req, res) {
+  app.get("/view/products/:id", function (req, res) {
     req.body.productId = req.id;
     db.products
       .findAll({
