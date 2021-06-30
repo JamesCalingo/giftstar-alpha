@@ -6,6 +6,8 @@ An app that lets users view, manage, and update gift lists/registries for events
 
 By creating an account with an email address, a user can create a registry for a wedding, baby shower, or some other event. 
 
+--
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
