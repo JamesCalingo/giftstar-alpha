@@ -9,7 +9,7 @@ function Login() {
   const [password, setPassword] = useState("");
 
   const loggedIn = () => {
-    toast.success("Logged In!", {
+    toast.success("Logged In! Note that you will automatically be logged out in 30 minutes.", {
       position: toast.POSITION.BOTTOM_CENTER,
     });
   };

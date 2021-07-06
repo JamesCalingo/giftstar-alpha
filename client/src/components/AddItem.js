@@ -8,7 +8,7 @@ function AddItem() {
   let [link, setLink] = useState("");
 
   const failure = () => {
-    toast.error("An error occurred.", {
+    toast.error("An error occurred. If this persists, try logging in again as your session may have expired.", {
       position: toast.POSITION.BOTTOM_CENTER,
     });
   };
