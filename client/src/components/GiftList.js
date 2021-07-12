@@ -34,7 +34,7 @@ function GiftList() {
       ) : (
         <div>
           <h1 className="text-center">
-           {user.firstName}
+           {user.firstName} {user.lastName}'s List
           </h1>
           <div className="card">
             <div className="card-header">

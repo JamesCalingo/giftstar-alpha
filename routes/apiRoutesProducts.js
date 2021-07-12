@@ -6,11 +6,11 @@ const withAuth = require("../middleware/authentication");
 // =============================================================
 module.exports = function (app) {
   app.get("/products", withAuth, function (req, res) {
-    req.body.listId = req.id;
+    req.body.userId = req.id;
     db.products
       .findAll({
         where: {
-          listId: req.id,
+          userId: req.id,
         },
       })
       .then(function (dbProducts) {
@@ -19,7 +19,7 @@ module.exports = function (app) {
   });
 
   app.post("/products", withAuth, function (req, res) {
-    req.body.listId = req.id;
+    req.body.userId = req.id;
     db.products.create(req.body).then(function (dbProducts) {
       res.json(dbProducts);
     });

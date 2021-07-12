@@ -20,9 +20,9 @@ module.exports = function (sequelize, DataTypes) {
     },
   });
 
-  Lists.associate = function (models) {
-    Lists.belongsTo(models.users);
-    Lists.hasMany(models.products);
-  };
+  // Lists.associate = function (models) {
+  //   Lists.belongsTo(models.users);
+  //   Lists.hasMany(models.products);
+  // };
   return Lists;
 };
