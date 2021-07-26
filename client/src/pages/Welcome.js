@@ -13,7 +13,7 @@ function Welcome() {
         Get the things you want the most!
       </div>
       <div className="text-center mb-3">
-      <img src={justForYou} alt="A stack of presents...just for you!" className="" />
+      <img src={justForYou} alt="A stack of presents...just for you!" />
       </div>
       <div className="container">
         <div className="row justify-content-center">
