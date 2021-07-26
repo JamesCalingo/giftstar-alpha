@@ -16,12 +16,12 @@ h1 {
   background: whitesmoke
 }
 
-.jumbotron {
-  background-image: url("components/IMG_3307.JPG")
-}
-
 .logo {
   font-family: 'Gloria Hallelujah', cursive;
+}
+
+img {
+  max-width: 80%;
 }
 
 .signUpMessage {
