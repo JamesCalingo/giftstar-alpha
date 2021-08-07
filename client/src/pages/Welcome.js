@@ -1,16 +1,19 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 // import { url } from "inspector";
+import justForYou from "../img/justForYou.jpeg"
 
 function Welcome() {
   return (
     <div>
       <div
         className="jumbotron text-center"
-        style={{ backgroundImage: "url('client/src/components/IMG_3307.JPG')" }}
       >
         <h1 className="logo">Giftstar</h1>
         Get the things you want the most!
+      </div>
+      <div className="text-center mb-3">
+      <img src={justForYou} alt="A stack of presents...just for you!" />
       </div>
       <div className="container">
         <div className="row justify-content-center">
