@@ -9,7 +9,7 @@ function Welcome() {
         className="jumbotron text-center"
         style={{ backgroundImage: "url('client/src/components/IMG_3307.JPG')" }}
       >
-        <h1 className="logo">Gifts in the Gazebo</h1>
+        <h1 className="logo">Giftstar</h1>
         Get the things you want the most!
       </div>
       <div className="container">
