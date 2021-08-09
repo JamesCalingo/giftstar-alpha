@@ -6,7 +6,7 @@ function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light mb-5">
       <NavLink to="/" className="btn logo">
-        Gifts in the Gazebo
+        Giftstar
       </NavLink>
       <button
         className="navbar-toggler"
