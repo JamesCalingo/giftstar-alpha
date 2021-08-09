@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import AddItem from "../components/AddItem";
-import GiftList from "../components/GiftList";
+import GiftList from "../components/PubList";
 import { getMyData } from "../utils/API"
 
 function UserListPage() {
@@ -23,7 +23,7 @@ function UserListPage() {
           <AddItem />
         </div>
         <div className="col-md-8">
-          <GiftList />
+          <MyList />
         </div>
       </div>
     </div>

@@ -1,6 +1,6 @@
 import React from "react";
 
-function ProdListItem(props) {
+function PubListItem(props) {
   return (
     <li className="border-bottom">
       {props.name} <br />
@@ -19,4 +19,4 @@ function ProdListItem(props) {
     </li>
   );
 }
-export default ProdListItem;
+export default PubListItem;
