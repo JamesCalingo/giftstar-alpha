@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import AddItem from "../components/AddItem";
-import GiftList from "../components/PubList";
+import MyList from "../components/MyList";
 import { getMyData } from "../utils/API"
 
 function UserListPage() {

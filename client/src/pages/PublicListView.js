@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import GiftList from "../components/PubList";
+import PubList from "../components/PubList";
 import { getMyData } from "../utils/API"
 
 function PublicListView() {
@@ -31,4 +31,4 @@ function PublicListView() {
    </div>);
 }
 
-export default UserListPage;
+export default PublicListView;
