@@ -10,7 +10,7 @@ import Search from "./pages/Search";
 import Account from "./pages/Account";
 import Reset from "./pages/Reset";
 import Success from "./pages/Success";
-import UserListPage from "./pages/UserListPage";
+import MyListView from "./pages/MyListView";
 import PublicListView from "./pages/PublicListView"
 
 function App() {
@@ -27,7 +27,7 @@ function App() {
           <Route exact path="/account" component={Account} />
           <Route exact path="/reset" component={Reset} />
           <Route exact path="/success" component={Success} />
-          <Route exact path="/userpage" component={UserListPage} />
+          <Route exact path="/mylist" component={MyListView} />
           <Route exact path="/viewlist" component={PublicListView} />
         </Switch>
       </>

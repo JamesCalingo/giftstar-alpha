@@ -12,7 +12,7 @@ function UserListPage() {
     .then(data => {
       setUser(data)
     })
-  }, [])
+  }, [user])
 
   return (
     <div>

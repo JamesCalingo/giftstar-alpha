@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import ProdListItem from "./PubListItem";
+import MyListItem from "./MyListItem";
 import { getMyData, getProducts } from "../utils/API";
 import { toast, ToastContainer } from "react-toastify";
 
@@ -20,7 +20,7 @@ function MyList() {
     }).catch(err => {
       console.log(err)
     });
-  }, [list]);
+  }, []);
 
   return (
     <div className="container">
@@ -41,10 +41,9 @@ function MyList() {
               <ul className="list-unstyled list">
                 {list.map((product) => {
                   return (
-                    <ProdListItem
+                    <MyListItem
                       key={product.id}
                       name={product.product}
-                      link={product.productLink}
                     />
                   );
                 })}
