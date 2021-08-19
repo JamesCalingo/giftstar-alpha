@@ -1,31 +1,36 @@
 import React, { useState, useEffect } from "react";
-import { findLists } from "../utils/API";
+import { findProducts, findUsers } from "../utils/API";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 
 const MySwal = withReactContent(Swal);
 
 function Search() {
-  const [lists, setLists] = useState([]);
+  const [users, setUsers] = useState([]);
+  const [products, setProducts] = useState([])
 
   useEffect(() => {
-    findLists(lists).then(({ data: listData }) => {
-      console.log(listData);
-      setLists(listData);
-    });
+    findUsers(users).then(({ data: userData }) => {
+      findProducts(products).then(({ data: productData}) => {
+        console.log(productData)
+      console.log(userData);
+      setProducts(productData)
+      setUsers(userData);
+    })
+  });
   }, []);
 
   const handleSearch = (event) => {
     // alert("This is currently under construction right now, but you can expect to have this active soon!")
     event.preventDefault();
-    console.log(lists);
-    findLists({
-      user: lists,
+    console.log(users);
+    findUsers({
+      users: users,
     })
       .then((data) => {
         console.log(data);
-        setLists({
-          lists: data,
+        setUsers({
+          users: data,
         });
       })
       .catch((err) => {
@@ -40,7 +45,7 @@ function Search() {
 
   return (
     <div className="container">
-      <h1>Search for a user/their lists here!</h1>
+      <h1>Search for a user's list here!</h1>
       <p>
         This is currently under construction, but you can see what type of
         things this will be used for!
@@ -64,18 +69,24 @@ function Search() {
             Submit
           </button>
         </form> */}
-        {lists.length === 0 ? (
+        {users.length === 0 ? (
           <h1>Loading...</h1>
         ) : (
           <div>
-            {lists.map((list) => {
+            {users.map((user) => {
               return (
-                <div className="border-bottom" key={lists.id}>
-                  <h1>{list.listName}</h1>
-                  <h3>by {list.userId}</h3>
-                  <h4>{list.description}</h4>
+                <div className="border-bottom" key={user.id}>
+                  <h1>{user.firstName} {user.lastName}</h1>
+                  <h1>{user.id}</h1>
+                  {/* <h3>by {list.userId}</h3>
+                  <h4>{list.description}</h4> */}
                 </div>
               );
+            })}
+            {products.map((product) => {
+              return (
+                <p key={product.id}>{product.product} {product.userId}</p>
+              )
             })}
           </div>
         )}

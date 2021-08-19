@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import ProdListItem from "./ProdListItem";
+import MyListItem from "./MyListItem";
 import { getMyData, getProducts } from "../utils/API";
 import { toast, ToastContainer } from "react-toastify";
 
-function GiftList() {
+function MyList() {
   const [user, setUser] = useState({});
   const [list, setList] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -20,11 +20,7 @@ function GiftList() {
     }).catch(err => {
       console.log(err)
     });
-  }, [list]);
-
-  const claimProduct = () => {
-    toast("Thank You!!");
-  };
+  }, []);
 
   return (
     <div className="container">
@@ -45,11 +41,9 @@ function GiftList() {
               <ul className="list-unstyled list">
                 {list.map((product) => {
                   return (
-                    <ProdListItem
+                    <MyListItem
                       key={product.id}
                       name={product.product}
-                      link={product.productLink}
-                      // claimProduct={claimProduct()}
                     />
                   );
                 })}
@@ -62,5 +56,5 @@ function GiftList() {
   );
 }
 
-export default GiftList;
+export default MyList;
 

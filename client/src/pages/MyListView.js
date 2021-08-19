@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import AddItem from "../components/AddItem";
-import GiftList from "../components/GiftList";
+import MyList from "../components/MyList";
 import { getMyData } from "../utils/API"
 
 function UserListPage() {
@@ -12,7 +12,7 @@ function UserListPage() {
     .then(data => {
       setUser(data)
     })
-  }, [])
+  }, [user])
 
   return (
     <div>
@@ -23,7 +23,7 @@ function UserListPage() {
           <AddItem />
         </div>
         <div className="col-md-8">
-          <GiftList />
+          <MyList />
         </div>
       </div>
     </div>

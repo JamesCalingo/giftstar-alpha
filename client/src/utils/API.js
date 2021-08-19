@@ -37,9 +37,13 @@ export const deleteItem = (productData) => {
 }
 
 export const claimProduct = (productData) => {
-  return axios.put("public/products", productData);
+  return axios.put("view/products", productData);
 };
 
-export const findLists = (listData) => {
-  return axios.get("public/lists", listData);
+export const findUsers = (userData) => {
+  return axios.get("view/users", userData);
 };
+
+export const findProducts = (productData) => {
+  return axios.get("view/products", productData)
+}
