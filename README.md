@@ -1,10 +1,17 @@
-# Gifts in the Gazebo
+# Giftstar
 
-An app that lets users view, manage, and update gift lists/registries for events such as weddings and baby showers.
+An app that lets users view, manage, and update gift lists for things such as weddings, baby showers, birthdays, and more.
 
 # Services
 
 By creating an account with an email address, a user can create a registry for a wedding, baby shower, or some other event. 
+
+# Technologies Used
+
+- React
+- SweetAlert2
+- React-Toastify
+- Sequelize/MySQL
 
 --
 
