@@ -7,17 +7,17 @@ const MySwal = withReactContent(Swal);
 
 function Search() {
   const [users, setUsers] = useState([]);
-  const [products, setProducts] = useState([])
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
     findUsers(users).then(({ data: userData }) => {
-      findProducts(products).then(({ data: productData}) => {
-        console.log(productData)
-      console.log(userData);
-      setProducts(productData)
-      setUsers(userData);
-    })
-  });
+      findProducts(products).then(({ data: productData }) => {
+        console.log(productData);
+        console.log(userData);
+        setProducts(productData);
+        setUsers(userData);
+      });
+    });
   }, []);
 
   const handleSearch = (event) => {
@@ -47,10 +47,9 @@ function Search() {
     <div className="container">
       <h1>Search for a user's list here!</h1>
       <p>
-        This is currently under construction, but you can see what type of
-        things this will be used for!
+      Here, you can see some of our users and the things they would like (as well as links to purchase these items if they were provided by the user.)
       </p>
-      <div className="card px-2 my-3">
+      <div className="card px-2 py-3">
         {/* <form>
           <div className="form-group">
             <label htmlFor="userName">User</label>
@@ -64,34 +63,39 @@ function Search() {
               placeholder=""
             />
           </div>
-
-          <button type="submit" className="btn btn-primary">
-            Submit
-          </button>
         </form> */}
         {users.length === 0 ? (
-          <h1>Loading...</h1>
+          <h1>Loading... if this persists let us know.</h1>
         ) : (
           <div>
             {users.map((user) => {
               return (
-                <div className="border-bottom" key={user.id}>
-                  <h1>{user.firstName} {user.lastName}</h1>
-                  <h1>{user.id}</h1>
-                  {/* <h3>by {list.userId}</h3>
-                  <h4>{list.description}</h4> */}
+                <div className="card mb-3">
+                  <div className="border-bottom" key={user.id}>
+                    <h2>
+                      {user.firstName} {user.lastName}
+                    </h2>
+                    would like
+                    {products
+                      .filter((product) => product.userId === user.id)
+                      .map((product) => {
+                        return(
+                        <ul>
+                          <li key={product.id}>{product.product} {product.productLink ? <a href={product.productLink} target="_blank">buy it here</a> : ""}</li>
+                        </ul>
+                        )
+                      })}
+                  </div>
                 </div>
               );
             })}
-            {products.map((product) => {
-              return (
-                <p key={product.id}>{product.product} {product.userId}</p>
-              )
-            })}
+           
           </div>
         )}
       </div>
-      <a href="/" className="mb-3 plain-text-link">Return home</a>
+      <a href="/" className="mb-3 plain-text-link">
+        Return home
+      </a>
     </div>
   );
 }
