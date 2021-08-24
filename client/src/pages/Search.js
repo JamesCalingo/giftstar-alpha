@@ -45,16 +45,13 @@ function Search() {
 
   return (
     <div className="container">
-      <h1>Search for a user's list here!</h1>
-      <p>
-      Here, you can see some of our users and the things they would like (as well as links to purchase these items if they were provided by the user.)
-      </p>
+      <h1>Search for a user/their list here!</h1>
+     
       <div className="card px-2 py-3">
-        {/* <form>
+        <form>
           <div className="form-group">
             <label htmlFor="userName">User</label>
             <input
-              value=""
               name="user"
               type="input"
               className="form-control form-control-lg"
@@ -63,9 +60,9 @@ function Search() {
               placeholder=""
             />
           </div>
-        </form> */}
+        </form>
         {users.length === 0 ? (
-          <h1>Loading... if this persists let us know.</h1>
+          <h1>Nothing to see here for now.</h1>
         ) : (
           <div>
             {users.map((user) => {
@@ -78,10 +75,11 @@ function Search() {
                     would like
                     {products
                       .filter((product) => product.userId === user.id)
+                      .reverse()
                       .map((product) => {
                         return(
                         <ul>
-                          <li key={product.id}>{product.product} {product.productLink ? <a href={product.productLink} target="_blank">buy it here</a> : ""}</li>
+                          <li key={product.id}>{product.product} | {product.productLink ? <a href={product.productLink} target="_blank">Buy it Here</a> : ""}</li>
                         </ul>
                         )
                       })}
