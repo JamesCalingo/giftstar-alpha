@@ -69,7 +69,7 @@ function Search() {
               id="userName"
               aria-describedby="userName"
               placeholder=""
-              value="Wagahai"
+              
             />
           </div>
         </form>
@@ -81,7 +81,6 @@ function Search() {
               .filter((user) => {
                 const text = document.querySelector("#userName");
                 const textVal = text.value;
-                console.log(textVal)
                 const regex = new RegExp(textVal, "gi");
                 return user.firstName === textVal
               })
