@@ -8,6 +8,7 @@ const MySwal = withReactContent(Swal);
 function Search() {
   const [users, setUsers] = useState([]);
   const [products, setProducts] = useState([]);
+  const [search, setSearch] = useState("")
 
   useEffect(() => {
     findUsers(users).then(({ data: userData }) => {
@@ -69,7 +70,7 @@ function Search() {
               id="userName"
               aria-describedby="userName"
               placeholder=""
-              
+              onChange={event => setSearch(event)}
             />
           </div>
         </form>
