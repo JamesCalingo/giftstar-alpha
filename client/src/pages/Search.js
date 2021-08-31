@@ -8,7 +8,7 @@ const MySwal = withReactContent(Swal);
 function Search() {
   const [users, setUsers] = useState([]);
   const [products, setProducts] = useState([]);
-  const [search, setSearch] = useState("")
+  const [search, setSearch] = useState("James");
 
   useEffect(() => {
     findUsers(users).then(({ data: userData }) => {
@@ -28,11 +28,6 @@ function Search() {
     });
   }
 
-  // function displayUsers() {
-  //   const nameInput = document.querySelector("#userName")
-  //   const names = searchForUsers(nameInput.value, users)
-  //   console.log(names)
-  // }
   // const handleSearch = (event) => {
   //   event.preventDefault();
   //   console.log(users);
@@ -70,7 +65,9 @@ function Search() {
               id="userName"
               aria-describedby="userName"
               placeholder=""
-              onChange={event => setSearch(event)}
+              onChange={(event) => {
+                setSearch(event.target.value);
+              }}
             />
           </div>
         </form>
@@ -80,10 +77,7 @@ function Search() {
           <div>
             {users
               .filter((user) => {
-                const text = document.querySelector("#userName");
-                const textVal = text.value;
-                const regex = new RegExp(textVal, "gi");
-                return user.firstName === textVal
+                user.firstName.toLowerCase().includes(search.toLowerCase());
               })
               .map((user) => {
                 return (
