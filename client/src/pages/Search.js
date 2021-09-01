@@ -8,6 +8,7 @@ const MySwal = withReactContent(Swal);
 function Search() {
   const [users, setUsers] = useState([]);
   const [products, setProducts] = useState([]);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     findUsers(users).then(({ data: userData }) => {
@@ -16,80 +17,104 @@ function Search() {
         console.log(userData);
         setProducts(productData);
         setUsers(userData);
+        console.log(search)
       });
     });
   }, []);
 
-  const handleSearch = (event) => {
-    // alert("This is currently under construction right now, but you can expect to have this active soon!")
-    event.preventDefault();
-    console.log(users);
-    findUsers({
-      users: users,
-    })
-      .then((data) => {
-        console.log(data);
-        setUsers({
-          users: data,
-        });
-      })
-      .catch((err) => {
-        console.log(err);
-        MySwal.fire({
-          title: "Whoops!",
-          type: "error",
-          text: "We seem to have encountered a problem with your request. Try again.",
-        });
-      });
-  };
+  function searchForUsers(text, users) {
+    return users.filter((name) => {
+      const regex = new RegExp(text, "gi");
+      return name.match(regex);
+    });
+  }
+
+  // const handleSearch = (event) => {
+  //   event.preventDefault();
+  //   console.log(users);
+  //   findUsers({
+  //     users: users,
+  //   })
+  //     .then((data) => {
+  //       console.log(data);
+  //       setUsers({
+  //         users: data,
+  //       });
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //       MySwal.fire({
+  //         title: "Whoops!",
+  //         type: "error",
+  //         text: "We seem to have encountered a problem with your request. Try again.",
+  //       });
+  //     });
+  // };
 
   return (
     <div className="container">
-      <h1>Search for a user's list here!</h1>
-      <p>
-      Here, you can see some of our users and the things they would like (as well as links to purchase these items if they were provided by the user.)
-      </p>
+      <h1>Search for a user/their list here!</h1>
+
       <div className="card px-2 py-3">
-        {/* <form>
+        <form>
           <div className="form-group">
             <label htmlFor="userName">User</label>
             <input
-              value=""
               name="user"
               type="input"
               className="form-control form-control-lg"
-              id="registryName"
+              id="userName"
               aria-describedby="userName"
               placeholder=""
+              onChange={(event) => {
+                setSearch(event.target.value);
+              }}
             />
           </div>
-        </form> */}
+        </form>
         {users.length === 0 ? (
-          <h1>Loading... if this persists let us know.</h1>
+          <h1>Nothing to see here for now.</h1>
         ) : (
           <div>
-            {users.map((user) => {
-              return (
-                <div className="card mb-3">
-                  <div className="border-bottom" key={user.id}>
-                    <h2>
-                      {user.firstName} {user.lastName}
-                    </h2>
-                    would like
-                    {products
-                      .filter((product) => product.userId === user.id)
-                      .map((product) => {
-                        return(
-                        <ul>
-                          <li key={product.id}>{product.product} {product.productLink ? <a href={product.productLink} target="_blank">buy it here</a> : ""}</li>
-                        </ul>
-                        )
-                      })}
+            {users
+              .filter((user) => 
+                user.firstName.toLowerCase() == search.toLowerCase()
+              )
+              .map((user) => {
+                return (
+                  <div className="card mb-3">
+                    <div className="border-bottom" key={user.id}>
+                      <h2>
+                        {user.firstName} {user.lastName}
+                      </h2>
+                      would like
+                      {products
+                        .filter((product) => product.userId === user.id)
+                        .reverse()
+                        .map((product) => {
+                          return (
+                            <ul key={product.id}>
+                              <li>
+                                {product.product} |{" "}
+                                {product.productLink ? (
+                                  <a
+                                    href={product.productLink}
+                                    rel="noreferrer"
+                                    target="_blank"
+                                  >
+                                    Buy it Here
+                                  </a>
+                                ) : (
+                                  ""
+                                )}
+                              </li>
+                            </ul>
+                          );
+                        })}
+                    </div>
                   </div>
-                </div>
-              );
-            })}
-           
+                );
+              })}
           </div>
         )}
       </div>

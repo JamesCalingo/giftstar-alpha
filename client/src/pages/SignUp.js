@@ -17,6 +17,7 @@ class SignUp extends React.Component {
     password2: "",
     firstName: "",
     lastName: "",
+    location: "",
     loggedIn: false,
   };
 
@@ -78,6 +79,7 @@ class SignUp extends React.Component {
       password: this.state.password,
       firstName: this.state.firstName,
       lastName: this.state.lastName,
+      location: this.state.location,
     })
       .then((userData) => {
         console.log(userData);
@@ -189,6 +191,18 @@ class SignUp extends React.Component {
                     type="input"
                     className="form-control"
                     id="lastName"
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="location">General Location (optional)</label>
+                  <input
+                    value={this.state.location}
+                    name="location"
+                    onChange={this.handleInputChange}
+                    type="input"
+                    className="form-control"
+                    id="location"
+                    placeholder="This can help people find your list if you share a name with another person somewhere else in the world."
                   />
                 </div>
 

@@ -39,10 +39,26 @@ img {
 }
 
 li a {
-  text-indent: 0
+  text-indent: 0;
 }
 
 .plain-text-link {
   font-size: 18pt;
-  text-align:center;
+  text-align: center;
+}
+
+@media only screen and (min-width: 1000px) {
+  img {
+    max-width: 1000px;
+  }
+
+
+  #welcomeMessage {
+    margin-top: -50px;
+   
+  }
+
+  #welcomeCard {
+    box-shadow: 5px 5px 5px black;
+  }
 }

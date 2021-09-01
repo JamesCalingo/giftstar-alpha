@@ -5,7 +5,7 @@ import justForYou from "../img/justForYou.jpeg"
 
 function Welcome() {
   return (
-    <div>
+    <div id="welcome">
       <div
         className="jumbotron text-center"
       >
@@ -15,10 +15,10 @@ function Welcome() {
       <div className="text-center mb-3">
       <img src={justForYou} alt="A stack of presents...just for you!" />
       </div>
-      <div className="container">
+      <div id="welcomeMessage" className="container">
         <div className="row justify-content-center">
           <div className="col-12 col-md-9 pb-5">
-            <div className="card text-center">
+            <div id="welcomeCard" className="card text-center">
               <div className="card-body">
                 <h1>Hello</h1>
                 <p>
