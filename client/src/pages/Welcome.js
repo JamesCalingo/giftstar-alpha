@@ -18,7 +18,7 @@ function Welcome() {
       <div id="welcomeMessage" className="container">
         <div className="row justify-content-center">
           <div className="col-12 col-md-9 pb-5">
-            <div className="card text-center">
+            <div id="welcomeCard" className="card text-center">
               <div className="card-body">
                 <h1>Hello</h1>
                 <p>

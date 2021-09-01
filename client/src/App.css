@@ -58,7 +58,7 @@ li a {
    
   }
 
-  .card {
+  #welcomeCard {
     box-shadow: 5px 5px 5px black;
   }
 }

@@ -8,7 +8,7 @@ const MySwal = withReactContent(Swal);
 function Search() {
   const [users, setUsers] = useState([]);
   const [products, setProducts] = useState([]);
-  const [search, setSearch] = useState("James");
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     findUsers(users).then(({ data: userData }) => {
@@ -17,6 +17,7 @@ function Search() {
         console.log(userData);
         setProducts(productData);
         setUsers(userData);
+        console.log(search)
       });
     });
   }, []);
@@ -76,9 +77,9 @@ function Search() {
         ) : (
           <div>
             {users
-              .filter((user) => {
-                user.firstName.toLowerCase().includes(search.toLowerCase());
-              })
+              .filter((user) => 
+                user.firstName.toLowerCase() == search.toLowerCase()
+              )
               .map((user) => {
                 return (
                   <div className="card mb-3">
