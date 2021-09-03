@@ -17,7 +17,7 @@ function Search() {
         console.log(userData);
         setProducts(productData);
         setUsers(userData);
-        console.log(search)
+        console.log(search);
       });
     });
   }, []);
@@ -68,21 +68,28 @@ function Search() {
               placeholder=""
               onChange={(event) => {
                 setSearch(event.target.value);
+                console.log(search);
               }}
             />
           </div>
         </form>
-        {users.length === 0 ? (
-          <h1>Nothing to see here for now.</h1>
+        {search === "" ? (
+          <p>Type the name of the person you're looking for in the search bar and they should show up.</p>
         ) : (
           <div>
             {users
-              .filter((user) => 
-                user.firstName.toLowerCase() == search.toLowerCase()
-              )
+              .filter((user) => {
+                let fullName = `${user.firstName.toLowerCase()} ${user.lastName.toLowerCase()}`;
+                let searchLC = search.toLowerCase();
+                return (
+                  user.firstName.toLowerCase().includes(searchLC) ||
+                  user.lastName.toLowerCase().includes(searchLC) ||
+                  fullName.includes(searchLC)
+                );
+              })
               .map((user) => {
                 return (
-                  <div className="card mb-3">
+                  <div key={user.id} className="card mb-3">
                     <div className="border-bottom" key={user.id}>
                       <h2>
                         {user.firstName} {user.lastName}
@@ -94,7 +101,7 @@ function Search() {
                         .map((product) => {
                           return (
                             <ul key={product.id}>
-                              <li>
+                              <li key={product.id}>
                                 {product.product} |{" "}
                                 {product.productLink ? (
                                   <a
