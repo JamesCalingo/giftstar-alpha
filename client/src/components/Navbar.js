@@ -9,13 +9,7 @@ function Navbar() {
         Giftstar
       </NavLink>
       <button
-        className="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarNavDropdown"
-        aria-controls="navbarNavDropdown"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
+        className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
       >
         <span className="navbar-toggler-icon" />
       </button>
@@ -39,6 +33,7 @@ function Navbar() {
         </ul>
       </div>
     </nav>
+    
   );
 }
 export default Navbar;

@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS giftsinthegazebo;
+DROP DATABASE IF EXISTS giftstar;
 
-CREATE DATABASE giftsinthegazebo;
+CREATE DATABASE giftstar;
 
-USE giftsinthegazebo;
+USE giftstar;
 
