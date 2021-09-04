@@ -20,7 +20,7 @@ function Account() {
   return (
     <div>
       {user ? (
-        <div className="container">
+        <div className="container mt-5">
           <h1 className="text-center">
             {user.firstName} {user.lastName}
           </h1>

@@ -15,9 +15,9 @@ function UserListPage() {
   }, [user])
 
   return (
-    <div>
+    <div className="mt-5">
     {user ? 
-    <div className="container">
+    <div className="container ">
       <div className="row">
         <div className="col-md-4">
           <AddItem />
@@ -27,7 +27,7 @@ function UserListPage() {
         </div>
       </div>
     </div>
-   : <div className="text-center">
+   : <div className="text-center mt-5">
      <h1>Gimme a sec here...</h1>
      <p>If nothing loads, check that you're logged in and try again.</p>
      </div>}

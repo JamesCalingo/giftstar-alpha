@@ -103,7 +103,7 @@ class SignUp extends React.Component {
     return (
       <div>
         <ToastContainer />
-        <div className="header text-center mb-3">
+        <div className="header text-center mt-5 mb-3">
           <div className="container">
             <h1>Sign Up Here!</h1>
             <p className="signUpMessage">

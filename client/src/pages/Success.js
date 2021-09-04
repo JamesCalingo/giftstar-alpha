@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 function Success() {
   return (
-    <div className="text-center">
+    <div className="text-center mt-5">
       <div className="jumbotron display-3">Account created successfully!</div>
       <h2>Your account was successfully created!</h2>
       <p>Now, let's start by adding some items to your wishlist!</p>

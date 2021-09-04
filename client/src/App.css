@@ -1,5 +1,5 @@
 body {
-  background: burlywood;
+  background: orange;
   font-family: 'Lato', sans-serif;
 }
 
@@ -9,11 +9,15 @@ h1 {
 
 .header {
   text-align: center;
-  background: white
 }
 
 .navbar {
   background: whitesmoke
+}
+
+.jumbotron {
+  background: white;
+  max-height: 300px;
 }
 
 .logo {
@@ -22,6 +26,11 @@ h1 {
 
 img {
   max-width: 80%;
+}
+
+#banner {
+  max-height: 250px;
+  margin-top: -25px;
 }
 
 .signUpMessage {

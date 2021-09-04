@@ -52,7 +52,7 @@ function Search() {
   // };
 
   return (
-    <div className="container">
+    <div className="container mt-5">
       <h1>Search for a user/their list here!</h1>
 
       <div className="card px-2 py-3">

@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 function Navbar() {
   // const [login, setLogin] = useState(false)
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light mb-5">
+    <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <NavLink to="/" className="btn logo">
         Giftstar
       </NavLink>

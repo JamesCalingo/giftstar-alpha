@@ -2,15 +2,15 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 // import { url } from "inspector";
 import justForYou from "../img/justForYou.jpeg"
+import banner from "../img/giftstar-jumbotron.png"
 
 function Welcome() {
   return (
     <div id="welcome">
       <div
-        className="jumbotron text-center"
+        className="jumbotron text-center mt-0"
       >
-        <h1 className="logo">Giftstar</h1>
-        Get the things you want the most!
+      <img id="banner" src={banner} alt="" />
       </div>
       <div className="text-center mb-3">
       <img src={justForYou} alt="A stack of presents...just for you!" />
