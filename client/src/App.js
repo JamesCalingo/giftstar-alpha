@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { HashRouter, Route } from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Welcome from "./pages/Welcome";
@@ -15,10 +15,9 @@ import PublicListView from "./pages/PublicListView"
 
 function App() {
   return (
-    <Router>
+    <HashRouter basename="/">
       <Navbar />
       <>
-        <Switch>
           <Route exact path="/" component={Welcome} />
           <Route exact path="/signup" component={SignUp} />
           <Route exact path="/login" component={Login} />
@@ -29,9 +28,8 @@ function App() {
           <Route exact path="/success" component={Success} />
           <Route exact path="/mylist" component={MyListView} />
           <Route exact path="/viewlist" component={PublicListView} />
-        </Switch>
       </>
-    </Router>
+    </HashRouter>
   );
 }
 
