@@ -117,7 +117,7 @@ class SignUp extends React.Component {
 
             <h3>
               If you already have an account, you can{" "}
-              <NavLink to="/LogIn">Log In</NavLink> here
+              <NavLink to="/login">Log In</NavLink> here
             </h3>
           </div>
         </div>
