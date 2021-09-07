@@ -40,7 +40,7 @@ function Welcome() {
                   there for you when you need it.
                 </p>
                 <h2>So, how can we help you today?</h2>
-                <NavLink to="/Login" className="btn btn-primary mx-2">
+                <NavLink to="/login" className="btn btn-primary mx-2">
                   Create/Edit List
                 </NavLink>
                 <NavLink to="/search" className="btn btn-success mx-2">
