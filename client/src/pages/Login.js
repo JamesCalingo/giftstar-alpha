@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import { NavLink } from "react-router-dom";
 import { loginUser } from "../utils/API";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -43,7 +43,7 @@ function Login() {
         <div className="card">
           <div className="card-body">
             <h5 className="mb-3">
-              Don't have an account yet? <a href="/SignUp">Sign Up Here!</a>
+              Don't have an account yet? <NavLink to="#/signup">Sign Up Here!</NavLink>
             </h5>
             <form>
               <div className="form-group">
