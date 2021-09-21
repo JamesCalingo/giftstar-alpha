@@ -20,7 +20,7 @@ function MyList() {
     }).catch(err => {
       console.log(err)
     });
-  }, []);
+  }, [user]);
 
   return (
     <div className="container">
